@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document Object Model</title>
+</head>
+<body>
+	<input id="text" type="text" value="some text" />
+	<button id="submit">Submit!</button>
+	
+	<script>
+		(function attachEvent() {
+			var button = document.getElementById("submit");
+			button.addEventListener("click",submitText);
+		})();
+
+		function submitText() {
+			var text = document.getElementById('text').value;
+			console.log(text);
+		}
+	</script>
+</body>
+</html>

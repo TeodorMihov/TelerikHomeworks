@@ -1,0 +1,49 @@
+<html>
+
+<head>
+	<title>Data types and variables</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style type="text/css">
+		label { font-size: 18px;}
+		button{
+			padding: 10px 30px;
+			border: 1px solid yellow; 
+			text-decoration: none;
+			
+		}
+	</style>
+</head>
+	
+<body>
+	<div id="inputdiv">
+		<div class="input">
+		
+			<label for="sideX">Input side X:</label>
+			<input type="text" id="sideX" />
+			<label for="sideY">Input side Y:</label>
+			<input type="text" id="sideY" />
+			<label for="height">Input height:</label>
+			<input type="text" id="height" />
+			<button onclick="trapezoidArea()">CalcArea</button>
+
+		</div>
+	</div>
+
+		<div id="js-console"></div>				 
+		<script src="scripts/js-console.js"></script>
+
+	<script>
+		function trapezoidArea() {
+			var sideX = jsConsole.readFloat("#sideX"),
+				sideY = jsConsole.readFloat("#sideY"),
+				height = jsConsole.readFloat("#height");
+				area = (sideX + sideY) * height / 2;
+				
+				jsConsole.writeLine("Trapezoid`s area is: " + area);
+		};		
+	</script>
+</body>
+
+</html>
+
+

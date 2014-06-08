@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Canvas</title>
+</head>
+<body>
+	<div id="container"></div>
+	<script src="kinetic.min.js"></script>
+	
+	<script type="text/javascript">
+	var layer = new Kinetic.Layer();
+
+	var stage = new Kinetic.Stage({
+		container: 'container',
+		width: 400,
+		height: 200
+	})
+	
+	var circle = new Kinetic.Circle({
+		x: 20,
+		y: 20,
+		radius:10,
+		fill: 'green'
+	})
+
+	var directionX = 2, 
+		directionY = 2;
+
+	function moveCircle(directionX, directionY){
+		var newX = circle.getX() + directionX,
+			newY = circle.getY() + directionY
+
+			circle.setX(newX);
+			circle.setY(newY);
+			console.log(newX);
+	}
+	
+	function animateCircle(){
+		layer.remove(circle);
+		layer.add(circle);
+		stage.add(layer);
+		
+
+		if (circle.getX() >= 390 || circle.getX() <= circle.getRadius()) {
+			directionX = -directionX;
+		};
+
+		if (circle.getY() >= 190 || circle.getY() <= circle.getRadius()) {
+			directionY = -directionY;
+		};
+
+		circle.draw();
+		moveCircle(directionX, directionY);
+
+		requestAnimationFrame(animateCircle);
+	}
+	
+	animateCircle();
+	
+	// var canvas = document.getElementById('content');
+	// 	ctx = canvas.getContext('2d');
+		
+		// function drawCircle(x, y) {
+		// ctx.beginPath();
+		// ctx.arc(x, y, 20, 0, 2*Math.PI);
+		// ctx.fill();
+		// ctx.closePath();
+		// }
+	</script>
+</body>
+</html>

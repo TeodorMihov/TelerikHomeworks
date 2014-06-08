@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Operators Expressions</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style type="text/css">
+		label { font-size: 18px;}
+		button{
+			padding: 10px 30px;
+			border: 1px solid yellow; 
+			text-decoration: none;
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="inputdiv">
+		<div>
+		
+			<label for="x">Enter X:</label>
+			<input type="text" id="varX" />
+		</div>
+		<div>
+		
+			<label for="y">Enter Y:</label>
+			<input type="text" id="varY" />
+			<button onclick="isInCircle()">IsInCircle</button>
+
+		</div>
+	</div>
+		<div></div>
+		<div id="js-console"></div>				 
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+		function isInCircle() {
+		var x = jsConsole.readFloat("#varX"),
+		    y = jsConsole.readFloat("#varY"),
+			radius = 5;
+			
+			if((x * x + y * y) < (radius * radius)) {
+			
+				jsConsole.writeLine("Point is within circle");
+			}
+			else {
+				jsConsole.writeLine("Point is outside circle");
+			}
+		}
+		</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+        //case 1 - <upcase>
+        //case 2 - lowcase
+        //case 3 - mixcase
+        function transformString(text) {
+            var state = 0,
+                result = "";
+            for (var i = 0; i < text.length; i++) {
+                switch (state) {
+                    case 0:
+                        if (text[i] === "<" && text[i + 1] === "u") {
+                            i += 7;
+                            state = 1;
+                        }
+                        else if (text[i] === "<" && text[i+1] === "l") {
+                            i += 8;
+                            state = 2;
+                        }
+                        else if (text[i] === "<" && text[i + 1] === "m") {
+                            i += 8;
+                            state = 3;
+                        }
+                        else {
+                            result += text[i];
+                        }
+                        break;
+
+                    case 1:
+                        if (text[i] === "<" && text[i + 1] === "/") {
+                            i += 8;
+                            state = 0;
+                        }
+                        else {
+                            result += text[i].toLocaleUpperCase();
+                        }
+                        break;
+
+                    case 2:
+                        if (text[i] === "<" && text[i + 1] === "/") {
+                            i += 9;
+                            state = 0;
+                        }
+                        else {
+                            result += text[i].toLowerCase();
+                        }
+                        break;
+                    case 3:
+                        if (text[i] === "<" && text[i + 1] === "/") {
+                            i += 9;
+                            state = 0;
+                        }
+                        else {
+                            if (i % 2 == 0) {
+                                result += text[i].toLowerCase();
+                            }
+                            else {
+                                result += text[i].toUpperCase();
+                            }
+                        }
+                        break;
+                }
+            }
+            jsConsole.writeLine(result);
+        }
+
+        var input = "We are <mixcase>living</mixcase> in a <upcase>yellow submarine</upcase>. We <mixcase>don't</mixcase> have <lowcase>anything</lowcase> else.";
+        var test = "asdasd<mixcase> stronger than ever </mixcase> asd <lowcase> GET DOWN </lowcase>as";
+        transformString(test);
+    </script>
+</body>
+</html>

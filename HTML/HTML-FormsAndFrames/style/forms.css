@@ -1,0 +1,58 @@
+root {
+    display: block;
+}
+ 
+body, table, td, fieldset
+{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+ 
+body
+{
+    font-family: "Times New Roman",Georgia,Serif;
+    font-size: 16px;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+ 
+#content
+{
+    margin: 10px;
+}
+ 
+table
+{
+    width: 500px;
+    border: 1px solid #bfbfbf;
+    border-spacing: 0px;
+}
+ 
+td
+{
+    border: 1px solid #bfbfbf;
+    padding: 0px;
+}
+ 
+tfoot
+{
+    background-color: #d1ede1;
+    text-align: center;
+}
+ 
+ 
+.formLabel
+{
+    width: 150px;
+    font-weight: bold;
+    text-align: right;
+    padding: 2px;
+}
+ 
+.inputCol
+{
+    width: 350px;
+    padding: 5px;
+    padding: 2px;
+}

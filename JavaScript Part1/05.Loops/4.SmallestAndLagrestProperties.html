@@ -1,0 +1,47 @@
+<html>
+
+<head>
+	<title>Max and min numbers</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+	
+<body>
+
+	<div id="js-console"></div>				 
+	<script src="scripts/js-console.js"></script>
+
+	<script>
+
+		findSmallest(document);
+		findLargest(document);
+		findSmallest(window);
+		findLargest(window);
+		findSmallest(navigator);
+		findLargest(navigator);
+
+		function findSmallest(object){
+			var smallestValue = "zzz";
+
+			for (var prop in object) {
+				if (prop < smallestValue) {
+					smallestValue = prop;
+				}
+			};
+
+			jsConsole.writeLine("Smallest: " + smallestValue)
+		}
+
+		function findLargest(object) {
+			var largestValue = "aaa";
+
+			for (var prop in object) {
+				if (prop > largestValue) {
+					largestValue = prop;
+				};
+			}
+			jsConsole.writeLine("Largest: " + largestValue);
+		}
+	</script>
+</body>
+
+</html>

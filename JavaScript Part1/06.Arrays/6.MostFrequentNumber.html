@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	
+	<script>
+		var input = [4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3],
+			finalElement,
+			finalCount = 1;
+
+			for (var i = 0; i < input.length; i++) {
+				var count = 1,
+					tempIndex = i+1,
+				    currentElement = input[i];
+
+				while (tempIndex < input.length) {
+					if (input[tempIndex] == currentElement) {
+						count++;
+					};
+					tempIndex++;
+			    }
+			    if (count > finalCount) {
+			    	finalCount = count;
+			    	finalElement = currentElement;
+			    };
+			}
+
+			jsConsole.writeLine("Most frequince number: " + finalElement + "(" + finalCount + "times)");
+	</script>
+</body>
+</html>

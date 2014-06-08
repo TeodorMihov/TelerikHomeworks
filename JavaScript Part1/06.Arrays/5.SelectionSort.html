@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	
+	<script>
+		var input = [9,8,3,4,5,1,7,6,2],
+			temp = 0;
+
+			for (var i = 0; i < input.length; i++) {
+				for (var j = i +1 ; j < input.length; j++) {
+
+					if (input[i] > input[j]) {
+						temp = input[i];
+						input[i] = input[j];
+						input[j] = temp;
+					};
+				};
+			};
+
+			jsConsole.writeLine("Sorted array: " + input);
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+
+<head>
+	<title>Operators Expressions</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+	<style type="text/css">
+		label { font-size: 18px;}
+		button{
+			padding: 10px 30px;
+			border: 1px solid yellow; 
+			text-decoration: none;
+			
+		}
+	</style>
+<body>
+	<div id="inputdiv">
+		<div class="input">
+		
+			<label for="number">Input number for check:</label>
+			<input type="text" id="number" />
+			<button onclick="oddOrEven()">Check</button>
+
+		</div>
+	</div>
+
+		<div id="js-console"></div>				 
+		<script src="scripts/js-console.js"></script>
+
+	<script>
+		function oddOrEven() {
+			var first = jsConsole.readFloat("#number");
+
+			if (first % 2 == 0) {
+				jsConsole.writeLine("number: " + first + " is even");
+			}
+			else {
+				jsConsole.writeLine("number: " + first + " is odd");
+			}
+		}		
+	</script>
+</body>
+
+</html>
+
+

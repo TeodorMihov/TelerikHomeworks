@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+        function extractHtmlContent(input) {
+            var state = 0,
+                result = '';
+            for (var i = 0; i < input.length; i++) {
+                if (input[i] === "<") {
+                    while (input[i] !== ">") { i++; }
+                }
+                else {
+                    result += input[i];
+                }
+            }
+            return result;
+        }
+
+        var input = "<html><head><title>Sample site</title></head><body><div>text<div>more text</div>and more...</div>in body</body></html>";
+
+        jsConsole.writeLine(extractHtmlContent(input));
+    </script>
+</body>
+</html>

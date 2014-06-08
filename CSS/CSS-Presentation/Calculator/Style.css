@@ -1,0 +1,142 @@
+﻿html * {
+  margin: 0;
+  padding: 0;
+  font-family: Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace; }
+
+section {
+  background: -webkit-linear-gradient(top, #edf3fb 0%, #dae5f1 30%, #d9e4f1 50%, #d9e4f1 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -moz-linear-gradient(top, #edf3fb 0%, #dae5f1 30%, #d9e4f1 50%, #d9e4f1 100%);
+  background: -o-linear-gradient(top, #edf3fb 0%, #dae5f1 30%, #d9e4f1 50%, #d9e4f1 100%);
+  background: linear-gradient(top, #edf3fb 0%, #dae5f1 30%, #d9e4f1 50%, #d9e4f1 100%);
+  height: 350px;
+  width: 410px; }
+
+ul.main-menu {
+  height: 20px;
+  width: 410px;
+  background: -webkit-linear-gradient(top, #fefeff 0%, #e5eaf5 28%, #d4dbed 29%, #e4e8f7 100%);
+  /* Chrome10+,Safar*/
+  background: -moz-linear-gradient(top, #fefeff 0%, #e5eaf5 28%, #d4dbed 29%, #e4e8f7 100%);
+  background: -o-linear-gradient(top, #fefeff 0%, #e5eaf5 28%, #d4dbed 29%, #e4e8f7 100%);
+  background: linear-gradient(top, #fefeff 0%, #e5eaf5 28%, #d4dbed 29%, #e4e8f7 100%);
+  border-bottom: 1px solid #c1c7d7;
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  ul.main-menu li {
+    color: #6d6d6d;
+    float: left;
+    font-size: 13px;
+    margin-left: 5px;
+    padding-top: 2px; }
+    ul.main-menu li:hover span {
+      text-decoration: underline; }
+
+.display {
+  float: left;
+  height: 50px;
+  width: 386px;
+  background: -webkit-linear-gradient(top, #e5eefb 0%, #ffffff 100%);
+  /* Chrome10+,Safari5.1+ */
+  border-radius: 4px;
+  border: 1px solid #c1c7d7;
+  margin-top: 12px;
+  margin-left: 12px;
+  margin-right: 12px;
+  text-align: right;
+  font-size: 19pt; }
+
+div.binary {
+  border: 1px solid #c1c7d7;
+  float: left;
+  height: 62px;
+  width: 386px;
+  border-radius: 4px;
+  margin-top: 5px;
+  margin-left: 12px;
+  margin-right: 12px; }
+  div.binary ul {
+    list-style-type: none;
+    margin-left: -5px;
+    text-align: right; }
+    div.binary ul:nth-child(even) li {
+      color: #6d6d6d; }
+      div.binary ul:nth-child(even) li:nth-child(2) {
+        position: relative;
+        left: 39%; }
+      div.binary ul:nth-child(even) li:last-child {
+        position: relative;
+        left: 70%; }
+    div.binary ul::after {
+      display: block;
+      clear: both;
+      /* Clearfix */
+      content: " "; }
+    div.binary ul li {
+      float: left;
+      font-size: 9pt;
+      display: inline;
+      margin-left: 18px; }
+
+.keyboard {
+  border: 1px solid #c1c7d7;
+  float: right;
+  border-radius: 4px;
+  margin-top: 4px;
+  margin-right: 10px; }
+  .keyboard div {
+    padding-bottom: 4px; }
+  .keyboard .equal-button {
+    width: 34px;
+    height: 58px;
+    border-radius: 2px;
+    padding: 0;
+    float: right;
+    font-size: 24px; }
+  .keyboard .zero-button {
+    width: 78px;
+    height: 27px;
+    border-radius: 2px;
+    margin: 0;
+    padding: 0;
+    font-size: 15px; }
+  .keyboard button {
+    font-size: 15px;
+    color: #1e395b;
+    width: 34px;
+    height: 27px;
+    border-radius: 2px;
+    margin: 0;
+    padding: 0; }
+
+.changeSystem {
+  float: right;
+  width: 50px;
+  height: 86px;
+  border: 1px solid #c1c7d7;
+  margin-top: 4px;
+  border-radius: 2px;
+  margin-right: 4px;
+  list-style-type: none;
+  font-size: 10px; }
+
+button {
+  position: relative;
+  border: 1px solid #8797AA;
+  background: -webkit-linear-gradient(#F0F6FB 0, #E2EAF3 49%, #D5E0ED 50%, #D7E2EF 100%);
+  background: -moz-linear-gradient(#F0F6FB 0, #E2EAF3 49%, #D5E0ED 50%, #D7E2EF 100%);
+  background: -o-linear-gradient(#F0F6FB 0, #E2EAF3 49%, #D5E0ED 50%, #D7E2EF 100%);
+  background: linear-gradient(#F0F6FB 0, #E2EAF3 49%, #D5E0ED 50%, #D7E2EF 100%);
+  line-height: 25px;
+  /* Button box model - without borders */ }
+  button:hover {
+    border-color: #F5D50F;
+    background: -webkit-linear-gradient(#FEF5EB 0%, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+    background: -moz-linear-gradient(#FEF5EB 0%, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+    background: -o-linear-gradient(#FEF5EB 0%, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+    background: linear-gradient(#FEF5EB 0%, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%); }
+  button:disabled {
+    border-color: #B4C2D1;
+    background: #D9E4F1; }
+/*# sourceMappingURL=Style.css.map */

@@ -1,0 +1,47 @@
+<html>
+
+<head>
+	<title>Data types and variables</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style type="text/css">
+		label { font-size: 18px;}
+		button{
+			padding: 10px 30px;
+			border: 1px solid yellow; 
+			text-decoration: none;
+			
+		}
+	</style>
+</head>
+	
+<body>
+	<div id="inputdiv">
+		<div class="input">
+		
+			<label for="number">Input number for check:</label>
+			<input type="text" id="number" />
+			<button onclick="dividedBy5And7()">Check</button>
+
+		</div>
+	</div>
+
+		<div id="js-console"></div>				 
+		<script src="scripts/js-console.js"></script>
+
+	<script>
+		function dividedBy5And7() {
+			var result = jsConsole.readFloat("#number");
+
+			if (result % 5 == 0 && result % 7 == 0) {
+				jsConsole.writeLine(result + " is divided by 5 and 7");
+			}
+			else {
+				jsConsole.writeLine(result + " isn`t divided by 5 and 7");
+			}
+		}		
+	</script>
+</body>
+
+</html>
+
+

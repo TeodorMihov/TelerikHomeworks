@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+        function checkBrackets(sequence) {
+            var bracket = 0;
+                
+            for (var i = 0; i < sequence.length; i++) {
+                if (sequence[i] === "(") {
+                    bracket++;
+                }
+                else if (sequence[i] === ")") {
+                    bracket--;
+                }
+
+                if (bracket < 0) {
+                    jsConsole.writeLine("Incorrect Brackets!");
+                    return;
+                }
+            }
+            if (bracket === 0) {
+                jsConsole.writeLine("Correct Brackets");
+            }
+            else {
+                jsConsole.writeLine("Incorrect Brackets");
+            }
+        }
+
+        var input = "((a + b) / 5 - d)",
+            secondInput = ")(a+b))",
+            thirdInput = "(a+b)(b+a))(";
+
+        checkBrackets(input);
+        checkBrackets(secondInput);
+        checkBrackets(thirdInput);
+    </script>
+</body>
+</html>

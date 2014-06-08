@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function Solve(input) {
+            function parseOperation(operationStart) {
+                var indexOfWhiteSpace = operationStart.trim().indexOf(' '),
+                    name = '',
+                    func;
+
+                if (indexOfWhiteSpace === -1) {
+                    name = operationStart;
+                    func = '';
+                }
+                else {
+                    name = operationStart.substring(0, indexOfWhiteSpace).trim();
+                    func = operationStart.substring(indexOfWhiteSpace).trim();
+                }
+                return {
+                    name: name.trim(),
+                    func: func.trim()
+                }
+            }
+
+            function parseValue(valueString) {
+                valueString = valueString.trim();
+                valueString = valueString.substring(0, valueString.length - 1);
+
+                var parts = valueString.split(',').map(function (item) {
+                    item = item.trim();
+                    if (isFinite(item)) {
+                        return parseInt(item);
+                    }
+                    else {
+                        return item.trim();
+                    }
+                });
+                return parts;
+            }
+
+            function evaluateOperation(name, scope) {
+                var operation = scope[name],
+                    values = [];
+                for (var i = 0; i < operation.value.length; i++) {
+                    var variableName = operation.value[i];
+                    if (!isFinite(variableName) && variableName != "") {
+                        var variableValue = scope[variableName].value;
+                        values.push(variableValue);
+                    }
+                    else {
+                        values.push(variableName);
+                    }
+                }
+                for (i = 0; i < values.length; i++) {
+                    operation.value.push(values);
+                }
+                console.log(name);
+                console.log(values);
+            }
+
+            function parseOperations(lines) {
+                var operations = [];
+
+                for (var i = 0; i < lines.length; i++) {
+                    var line = lines[i],
+                        parts = line.split('['),
+                        operation = parseOperation(parts[0]),
+                        value = parseValue(parts[1]);
+                    operation.value = value;
+                    operations.push(operation);
+                }
+                return operations;
+            }
+
+            var lines = input.map(function (item) {
+                item = item.trim();
+                if (item.indexOf('def ') !== 0) {
+                    return item;
+                }
+                item = item.substr('def '.length).trim();
+                return item;
+            });
+
+            var operations = parseOperations(lines),
+                scope = {};
+            for (var i = 0; i < operations.length; i++) {
+                var operation = operations[i];
+                scope[operation.name] = operation;
+                evaluateOperation(operation.name, scope);
+            }
+        }
+
+        var args = [
+                "def func sum[5, 3,    7 , 2,    6,   3]",
+                "def func2 [5, 3, 7, 2, 6, 3]",
+                "def func3 min[   func2]",
+                "def func4 max[5, 3   , 7,    2, 6, 3]",
+                "def func5 avg[5, 3, 7, 2, 6, 3]",
+                "def func6 sum[func2, func3, func4 ]",
+            "sum[func6, func4]"
+        ];
+
+        console.log(Solve(args));
+    </script>
+</body>
+</html>

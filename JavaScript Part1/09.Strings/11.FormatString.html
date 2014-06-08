@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+        function stringFormat() {
+
+            var text = arguments[0],
+                state = 'in text',
+                newText = '';
+
+            for (var i = 0; i < text.length; i++) {
+                var currentSymbol = text[i];
+                switch (state) {
+                    case 'in text':
+
+                        if (currentSymbol === '{') {
+                            state = 'in placeholder';
+                        }
+                        else {
+                            newText += currentSymbol;
+                        }
+                        break;
+                    case 'in placeholder':
+                        var arg = parseInt(currentSymbol);
+                        newText += arguments[arg + 1].toString();
+                        ++i;
+                        state = 'in text';
+                        break;
+                }
+            }
+            return newText;
+        }
+
+        var frmt = '{0}, {1}, {0} text {2}';
+        var str = stringFormat(frmt, 1, 'Pesho', 'Gosho');
+        jsConsole.writeLine('result: ' + str);
+    </script>
+</body>
+</html>

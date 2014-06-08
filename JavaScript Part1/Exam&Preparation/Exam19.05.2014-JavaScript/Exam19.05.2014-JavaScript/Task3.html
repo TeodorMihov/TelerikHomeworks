@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Task3</title>
+</head>
+<body>
+    <script>
+        function Solve(input) {
+            var cars = 3,
+                trucks = 4,
+                trikes = 10,
+                combinations = 0,
+                result = 0;
+
+            for (var i = 1; i < 70; i++) {
+                result += cars * i;
+                if (result === input) {
+                    combinations++;
+                }
+                for (var j = 0; j < 50; j++) {
+                    if (result === input) {
+                        combinations++;
+                    }
+                    result += trucks * j;
+                    for (var k = 0; k < 20; k++) {
+                        if (result == input) {
+                            combinations++;
+                            result = 0;
+                        }
+                        if (result > 0) {
+                            result = 0;
+                        }
+                        result += trikes * k;
+                    }
+                }
+            }
+            return combinations;
+        }
+        var test1 = '7',
+            test2 = 10,
+            test3 = 40;
+        console.log(Solve(10));
+    </script>
+</body>
+</html>

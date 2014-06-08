@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML canvas</title>
+</head>
+<body>
+	<div id="container"></div>
+	<script src="kinetic.min.js"></script>
+
+	<script type="text/javascript">
+		var stage = new Kinetic.Stage({
+			container: 'container',
+			width: 300,
+			height: 300
+		}),
+			layer = new Kinetic.Layer();
+
+		var frame = new Kinetic.Line({
+			points: [110, 70,
+					 150, 100,
+					 150, 100,
+					 170, 80,
+					 120, 80,
+					 100, 100,
+					 150, 100,],
+			stroke: 'blue'
+		})
+
+		var crownWheel = new Kinetic.Circle({
+			x: 150,
+			y: 100,
+			radius: 5,
+			stroke: 'blue'
+		})
+
+		var pedal = new Kinetic.Line({
+			points: [145, 95, 142, 92],
+			stroke: 'blue'
+		})
+
+		var secondPedal = new Kinetic.Line({
+			points: [155, 105, 158, 108],
+			stroke: 'blue'
+		})
+
+		var partOfFrame = new Kinetic.Line({
+			points: [150, 100, 110, 70],
+			stroke: 'blue'
+		})
+
+		var seat = new Kinetic.Line({
+			points: [100, 70, 120, 70],
+			stroke: 'blue'
+		})
+
+		var wheel = new Kinetic.Circle({
+			x: 100,
+			y: 100,
+			radius: 10,
+			stroke: 'blue',
+			fill: 'lightblue'
+		})
+
+		var steeringWheel = new Kinetic.Line({
+			points: [175, 100, 170, 65],
+			stroke: 'blue'
+		})
+
+		var secondPartOfSteeringWheel = new Kinetic.Line({
+			points: [162, 65, 170, 65, 175, 60],
+			stroke: 'blue'
+		})
+
+		var secondWheel = wheel.clone();
+			secondWheel.setX(175);
+
+		layer.add(wheel);
+		layer.add(secondWheel);
+		layer.add(frame);
+		layer.add(crownWheel);
+		layer.add(pedal);
+		layer.add(secondPedal);
+		layer.add(seat);
+		layer.add(steeringWheel);
+		layer.add(secondPartOfSteeringWheel);
+		stage.add(layer);
+	</script>
+</body>
+</html>

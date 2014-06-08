@@ -1,0 +1,34 @@
+* {
+			margin:0;
+			padding:8;
+		}
+		
+		tfoot {
+			background-color:lightgray;
+		}
+		
+		thead {
+			background-color:lightgray;
+			text-align:left;
+		}
+		
+		tbody {
+		}
+				
+		table {
+			width:100%;
+		}
+		
+		.items {
+			float:right
+		}
+		
+		.pageSize {
+			margin-left:15px;
+		}
+		table, td {
+			border-width: 3px;
+			border-style: solid;
+			border-color: lightgrey;
+		} 
+		

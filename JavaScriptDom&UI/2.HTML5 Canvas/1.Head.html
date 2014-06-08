@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML canvas</title>
+</head>
+<body>
+	<div id="container"></div>
+	<script src="kinetic.min.js"></script>
+
+	<script type="text/javascript">
+	var container = new Kinetic.Stage({
+		container: 'container',
+		width: '1000',
+		height: '700'
+	});
+	// head
+	var circle = new Kinetic.Circle({
+		x: 120,
+		y: 200,
+		radius: 60,
+		stroke: 'black',
+		fill: 'lightblue'
+	});
+	var nose = new Kinetic.Line({
+		points: [115, 210, 100, 210, 115, 185],
+		stroke: 'black',
+
+	});
+
+	var leftEye = new Kinetic.Circle({
+		x: 90,
+		y: 180,
+		radius: 7,
+		stroke: 'black',
+		scale: {
+			x: 1.5,
+			y: 1
+		}
+	});
+	var rightEye = new Kinetic.Circle({
+		x: 140,
+		y: 180,
+		radius: 7,
+		stroke: 'black',
+		scale: {
+			x: 1.5,
+			y: 1
+		}
+	});
+	var insidePartOfLeftEye = new Kinetic.Circle({
+		x:87,
+		y:180,
+		radius:2,
+		fill: 'black',
+		scale: {
+			x: 1,
+			y: 1.5
+		}
+	});
+
+	var insidePartOfRightEye = new Kinetic.Circle({
+		x:137,
+		y:180,
+		radius:2,
+		fill: 'black',
+		scale: {
+			x: 1,
+			y: 1.5
+		}
+	});
+
+	var hatUpPart = new Kinetic.Circle({
+		x: 122,
+		y: 52,
+		radius: 24,
+		fill: 'darkblue',
+		stroke: 'black',
+		scale: {
+			x:1.5,
+			y:0.5
+		},
+	})
+
+	var hatMiddlePart = new Kinetic.Rect({
+		x: 86,
+		y: 50,
+		width: 72,
+		height: 100,
+		fill: 'darkblue',
+	})
+
+	var hatBase = new Kinetic.Circle({
+		x: 121,
+		y: 153,
+		radius: 25,
+		fill: 'darkblue',
+		stroke: 'black',
+		scale: {
+			x: 3.5,
+			y: 0.5
+		},
+		draggable: true
+	})
+
+	var mouth = new Kinetic.Circle({
+		x: 110,
+		y: 230,
+		radius: 10,
+		stroke: 'black',
+		scale: {
+			x: 3,
+			y: 1
+		}
+	})
+	mouth.rotate(10);	
+
+	var layer = new Kinetic.Layer(),
+		hatDownPart = hatUpPart.clone();
+		hatDownPart.setY(148);
+		
+	layer.add(circle);
+	layer.add(nose);
+	layer.add(leftEye);
+	layer.add(rightEye);
+	layer.add(insidePartOfLeftEye);
+	layer.add(insidePartOfRightEye);
+	layer.add(hatBase);
+	layer.add(hatDownPart);
+	layer.add(hatMiddlePart);
+	layer.add(hatUpPart);
+	layer.add(mouth);
+	container.add(layer);
+	
+	</script>
+</body>
+</html>

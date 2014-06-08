@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document Object Model</title>
+</head>
+<body>
+	<input id ="color" type="color"/>
+	<input id = "submit" type="submit" />
+
+	<script type="text/javascript">
+		(function attachEvent() {
+			var color = document.getElementById('submit');
+			color.addEventListener('click',changeBackground);
+		})();
+
+		function changeBackground() {
+			document.body.style.backgroundColor = document.getElementById('color').value;
+			console.log(typeof(document.getElementById('color').value))
+		}
+	</script>
+</body>
+</html>

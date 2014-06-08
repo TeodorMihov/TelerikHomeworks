@@ -1,0 +1,88 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  font-family: Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace; }
+
+body {
+  height: 750px;
+  background-color: #F1F1F1; }
+
+nav {
+  width: 15%;
+  float: left; }
+  nav ul {
+    margin-bottom: 20px; }
+    nav ul li a {
+      list-style-type: none;
+      text-decoration: none; }
+      nav ul li a.main-nav {
+        color: #900B09; }
+
+main {
+  width: 69%;
+  height: 90%;
+  float: left;
+  border: 1px solid #808080;
+  background-color: white; }
+  main h1 {
+    font-size: 1.5em; }
+  main button {
+    width: 110px;
+    height: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px; }
+  main button.previous {
+    background: url(images/leftarrow.png) no-repeat 5px; }
+  main button.next {
+    background: url(images/rightarrow.png) no-repeat 5px; }
+  main article {
+    margin-bottom: 25px; }
+    main article h2 {
+      background-color: #808080;
+      color: white;
+      font-size: 18px; }
+    main article img {
+      float: left; }
+    main article p {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+      main article p a {
+        color: #900B09; }
+      main article p a.startCss {
+        margin-left: 95px; }
+  main hr {
+    height: 1px;
+    background-color: #9B9B9B;
+    width: 99%;
+    margin: 2px; }
+
+aside {
+  width: 15%;
+  height: 95%;
+  display: inline-block;
+  margin-left: 3px;
+  background-color: white; }
+  aside h2 {
+    background-color: #808080;
+    color: white;
+    font-size: 18px; }
+  aside div {
+    border: 1px solid #808080; }
+  aside p {
+    text-align: center;
+    margin: 3px; }
+  aside a {
+    color: #900B09;
+    padding: 5px;
+    text-align: center; }
+  aside button {
+    width: 170px;
+    height: 40px;
+    margin-left: 15px;
+    margin-top: 6px;
+    background-color: #D4F0FE;
+    color: #94E0FD;
+    border: 2px solid #94E0FD;
+    font-size: 20px; }
+
+/*# sourceMappingURL=style.css.map */

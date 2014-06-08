@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Super Sonic</title>
+	<style>
+	svg {
+		z-index: -1;
+	}
+	
+	</style>
+</head>
+<body>
+	<div id="container"></div>
+
+	<script src="scripts/raphael-min.js"></script>
+	<script src="scripts/kinetic.min.js"></script>
+
+	<script>
+	var paper = Raphael(10, 10, 800, 500),
+		background = paper.image('images/Sonic-Friends-super-blaze.jpg', 10, 10, 800, 500),
+		layer = new Kinetic.Layer(),
+		stage = new Kinetic.Stage({
+			container: 'container',
+			width: 800,
+			height: 500
+		});
+
+	var imageObj = new Image();
+	var os = 5;
+	imageObj.onload = function () {
+    var sonic = new Kinetic.Sprite({
+        x: 200,
+        y: 260,
+        image: imageObj,
+        animation: 'idle',
+        animations: {
+            idle: [
+              // x, y, width, height (1 frames)
+              // 10, 0, 35, 35,
+              44, 0, 35, 46,
+              5, 365, 35, 46,
+              39, 365, 35, 46,
+              76, 365, 35, 46,
+              112, 370, 35, 46,
+              148, 370, 35, 46,
+              184, 370, 35, 46,
+              220, 370, 35, 46,
+              255, 370, 35, 46,
+              297, 370, 35, 46,
+              346, 370, 35, 46,
+              383, 370, 35, 46,
+              428, 370, 35, 46,
+              471, 370, 35, 46,
+              515, 370, 35, 46,
+              560, 370, 35, 46,
+              604, 370, 35, 46,
+              649, 370, 35, 46,
+              692, 370, 35, 46,
+              736, 370, 35, 46,
+              775, 370, 35, 46,
+              820, 370, 35, 46,
+              860, 370, 35, 46,
+              901, 370, 35, 46,
+              944, 370, 35, 46,
+              8, 419, 35, 46,
+              57, 419, 35, 46,
+              94, 419, 35, 46,
+              131, 419, 35, 46,
+              160, 419, 50, 46,
+              213, 419, 50, 46,
+              272, 419, 44, 46,
+              325, 419, 44, 46,
+              370, 419, 44, 46,
+              419, 419, 44, 46,
+              473, 419, 44, 46,
+              518, 419, 44, 46,
+              567, 419, 44, 46,
+              613, 419, 40, 46,
+              655, 419, 44, 46,
+              708, 419, 44, 46,
+              759, 419, 44, 46,
+              813, 419, 55, 46,
+              882, 419, 55, 46,
+              949, 419, 55, 46,
+
+            ],
+            walkLeft: [
+              // x, y, width, height (8 frames)
+              5, 135, 35, 46,
+              46, 135, 35, 46,
+              80, 135, 35, 46,
+              120, 140, 35, 46,
+              155, 140, 35, 46,
+              190, 140, 35, 46,
+              233, 140, 35, 46,
+              278, 140, 35, 46,
+            ],
+            walkRight: [
+                // x, y, width, height (8 frames)
+               850, 1521, 35, 46,
+               8, 1565, 35, 46,
+               43, 1565, 35, 46,
+               76, 1565, 35, 46,
+               121, 1565, 35, 46,
+               167, 1565, 35, 46,
+               210, 1565, 35, 46,
+            ],
+        },
+        frameRate: 7,
+    });
+
+    layer.add(sonic);
+    stage.add(layer);
+    sonic.start();
+
+    var frameCount = 0;
+
+    sonic.on('frameIndexChange', function (evt) {
+        if (sonic.animation() === 'walkLeft' && ++frameCount < 8) {
+            sonic.setX(sonic.attrs.x -= 6);
+        }
+        if (sonic.animation() === 'walkLeft' && ++frameCount > 8) {
+            frameCount = 0;
+        }
+        if (sonic.animation() === 'walkRight' && ++frameCount < 8) {
+            sonic.setX(sonic.attrs.x += 6);
+        }
+        if (sonic.animation() === 'walkRight' && ++frameCount > 8) {
+            frameCount = 0;
+        }
+    });
+
+    // document.addEventListener('keyup', function (e) {
+
+    //     if (e.keyCode === 39) {
+    //         sonic.animation('idle');
+    //     }
+    //     if (e.keyCode === 37) {
+    //         sonic.animation('idle');
+    //     }
+    // });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.keyCode === 39) {
+            sonic.animation('walkRight');
+        }
+        if (e.keyCode === 37) {
+            sonic.animation('walkLeft');
+        }
+    });
+};
+imageObj.src = 'images/Sonic-Sprite.png';
+
+		stage.add(layer);
+	</script>
+</body>
+</html>

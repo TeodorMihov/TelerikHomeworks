@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head>
+	<meta charset="UTF-8">
+	<title>Document Object Model</title>
+</head>
+<body>
+	<h1>Write a script that selects all the div nodes that are directly inside other div elements</h1>
+	<p>Create a function using querySelectorAll() </p>
+	<p>Create a function using getElementsByTagName()</p>
+	<div>Division</div>
+	<div>Division</div>
+	<div>
+		<div>Inside Division</div>
+		<div>Inside Division</div>
+		<div>Inside Division</div>
+	</div>
+	<div>Division</div>
+	
+	<script type="text/javascript">
+	console.log("using querySelectorAll()");
+
+	var qdivs = document.querySelectorAll('div > div');
+		addDivsToBody(qdivs);
+		function addDivsToBody(divs) {
+			var length = divs.length;
+
+			for (var i = 0; i < length; i+=1) {
+				console.log(divs[i]);
+			}
+		};
+
+		console.log("Using getElementsByTagName()");
+	
+		var divs = document.getElementsByTagName('div');
+
+		for (var i = 0, length = divs.length; i < length; i+=1) {
+			if (divs[i].parentNode.nodeName === "DIV") {
+				console.log(divs[i]);
+			};
+		}
+
+	
+
+	</script>
+</body>
+</html>

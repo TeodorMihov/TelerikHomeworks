@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#container {
+			border: 3px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+	<script src="kinetic.min.js"></script>
+		<script>
+		var layer = new Kinetic.Layer(),
+			stage = new Kinetic.Stage({
+				container: 'container',
+				width: 600,
+				height: 300
+			}),
+			direction = 'none',
+			snakePartWith = 10;
+
+			function snake(){
+				this.snakeParts = [];
+				this.head = snakePart(30, 10);
+				this.snakeParts.push(this.head);
+				layer.add(this.snakeParts[0]);
+
+				this.moveHead = function move(direction, snakePartWith){
+					var oldHeadX = this.head.getX(),
+						oldHeadY = this.head.getY();
+
+					if (direction === 'left') {
+						this.head.setX(oldHeadX - snakePartWith);
+					}
+					else if(direction === 'right'){
+						this.head.setX(oldHeadX + snakePartWith);
+					}
+					else if(direction === 'up'){
+						this.head.setY(oldHeadY - snakePartWith);
+					} 
+					else if(direction === 'down'){
+						this.head.setY(oldHeadY + snakePartWith);
+					}
+					// check for self destruct
+					for (var i = 1; i < this.snakeParts.length; i += 1) {
+						var self = this.snakeParts[i];
+						if (this.head.getX() === self.getX() &&
+							this.head.getY() === self.getY()) {
+							animation.stop();
+							alert('GAME OVER. You can go outside and PLAY now!!!');
+						}
+					}
+					//check for food
+					if (this.head.getX() === food.getX() &&
+							this.head.getY() === food.getY()) {
+							this.eatFood();
+							this.makeNewFood()
+					}
+
+					if (this.head.getX() < 0 ||
+							this.head.getX() > stage.getWidth() ||
+							this.head.getY() < 0 ||
+							this.head.getY() > stage.getHeight()) {
+						animation.stop();
+						alert('GAME OVER. You can go outside and PLAY now!!!');	
+					}
+					
+					this.repositionSnakeParts(oldHeadX, oldHeadY);
+				}
+
+				this.repositionSnakeParts = function repositionSnakeParts(oldHeadX, oldHeadY) {
+					var temporarySnakePartPosition = {
+						x: oldHeadX,
+						y: oldHeadY
+					};
+
+					for (var i = this.snakeParts.length - 1; i > 0; i -= 1) {
+						var currentElementPosition = {
+							x: this.snakeParts[i].getX(),
+							y: this.snakeParts[i].getY()
+						};
+						this.moveParts(temporarySnakePartPosition, i);
+						temporarySnakePartPosition.x = currentElementPosition.x;
+						temporarySnakePartPosition.y = currentElementPosition.y;
+					}
+				}
+
+				this.moveParts = function moveParts(temporaryPosition, currentPosition) {
+					this.snakeParts[currentPosition].setX(temporaryPosition.x);
+					this.snakeParts[currentPosition].setY(temporaryPosition.y);
+				}
+				
+				 
+				this.eatFood = function eatFood(){
+					this.snakeParts.push(food);
+					for (var i = 1; i < this.snakeParts.length; i += 1) {
+						layer.add(this.snakeParts[i]);
+					}
+				}
+
+				var food = snakePart(getRandomNumber(0, 60) * 10, getRandomNumber(0, 30) * 10);
+				layer.add(food);
+				this.makeNewFood = function makeNewFood(){
+					food = snakePart(getRandomNumber(0, 60) * 10, getRandomNumber(0, 30) * 10);
+					layer.add(food);
+				}
+			}
+			
+			function snakePart(x, y){
+				return new Kinetic.Rect({
+				x: x,
+				y: y,
+				width: 10,
+				height: 10,
+				fill: 'green'
+				}) 
+			}
+
+			var snake = new snake();
+			stage.add(layer);
+
+			var lastTime = 0,
+		    	frameRate = 80,
+		    	animation = new Kinetic.Animation(function(frame) {
+
+		        if(frame.time > (lastTime + frameRate)){
+		            snake.moveHead(direction, snakePartWith);
+
+		            lastTime = frame.time;
+		        }
+    		}, layer);
+			
+			document.body.addEventListener('keydown', function (e){
+				switch (e.keyCode) {
+					case 37:
+						direction = 'left';
+						break;
+					case 38:
+						direction = 'up';
+						break;
+					case 39:
+						direction = 'right';
+						break;
+					case 40:
+						direction = 'down';
+						break;
+				}
+				animation.start();
+				// animation.stop();
+			});
+
+			function getRandomNumber (min, max){
+				return (Math.random() * (max - min) + min) | 0;
+			}
+		</script>
+	</div>
+</body>
+</html>

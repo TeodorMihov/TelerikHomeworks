@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function Solve(input) {
+            var state = 'function name',
+                func = {
+                    name: '',
+                    operation: ''
+                };
+
+            for (var i = 0; i < input.length; i++) {
+                switch (state) {
+                    case 'function name':
+                        getFuncName(input[i]);
+                        func.name = func.name.substring(3, func.name.length);
+                        break;
+                }
+            }
+            console.log(func.name);
+
+            function getFuncName() {
+                for (var j = 0; j < input[i].length; j++) {
+                    var currentSymbol = input[i][j];
+                    if (currentSymbol === '(') {
+                        state = 'operations';
+                    }
+                    else if (currentSymbol === ' ') {
+                        continue;
+                    }
+                    else if (currentSymbol === ' ' && isFinite(input[i][j + 1])) {
+                        state = 'digits';
+                    }
+                    else {
+                        func.name += currentSymbol;
+                    }
+                }
+            }
+        }
+
+        var input = [
+            '(def     func     10  )',
+            '(def newFunc (+  func 2))',
+            '(def sumFunc (+ func func newFunc 0 0 0))',
+            '(* sumFunc 2)'
+        ];
+
+        Solve(input);
+
+        //function getNumbers(line) {
+        //    var len = line.length,
+        //        digit = '',
+        //        numbers = [];
+
+        //    for (var i = 0; i < len; i++) {
+        //        var symbol = line[i];
+
+        //        if (symbol === ' ' || symbol === ')') {
+
+        //            if (!isFinite(digit)) {
+        //                numbers.push(parseInt(digit));
+        //                digit = '';
+        //            }
+        //            digit = '';
+        //        }
+        //        digit += symbol;
+        //    }
+
+        //    return numbers;
+        //}
+    </script>
+</body>
+</html>

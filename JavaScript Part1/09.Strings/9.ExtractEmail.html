@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+        function emailSearch(input) {
+            var state = "in text",
+                emails = [],
+                currentEmail = '';
+
+            for (var i = 0; i < input.length; i++) {
+                var currentSymbol = input[i];
+
+                switch (state) {
+                    case "in text":
+                        if (currentSymbol === "@") {
+                            state = "search for begining"
+                        }
+                        break;
+                    case "search for begining":
+                        while (currentSymbol !== " ") {
+                            i--;
+                            currentSymbol = text[i];
+                        }
+                        state = "extract email";
+                        break;
+                    case "extract email":
+                        if (currentSymbol == " ") {
+                            state = "in text";
+                            emails.push(currentEmail);
+                            currentEmail = "";
+
+                        } else {
+                            currentEmail += currentSymbol;
+                        }
+                        break;
+                }
+            }
+            return emails;
+        }
+
+        var text = "Trygnali dvama magiosnici kym magicland@gmail.com no stignali do evilone@abv.bg "
+
+        jsConsole.writeLine(emailSearch(text));
+    </script>
+</body>
+</html>

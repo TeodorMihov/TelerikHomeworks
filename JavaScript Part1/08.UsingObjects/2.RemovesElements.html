@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	
+	<script>
+	var arr = [1,2,1,4,1,3,4,1,111,3,2,1,'1'];
+
+	Array.prototype.remove = function (element) {
+		var newArr = [];
+
+		for (var i = 0; i < this.length; i++) {
+			if (element !== this[i]) {
+				newArr.push(this[i]);
+			};
+		}
+		return newArr;
+
+		/*for(var i in this) {
+			if (element !== this[i]) {
+				newArr.push(this[i]);
+			};
+		}
+		return newArr;*/
+	}
+
+	var test = arr.remove(1);
+	jsConsole.writeLine("Cleared array is: " + test);
+	</script>
+</body>
+</html>

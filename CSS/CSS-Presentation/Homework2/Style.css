@@ -1,0 +1,37 @@
+﻿body {
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(100% 100% 90deg, #b050f9, #be65ff);
+    /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b050f9), to(#be65ff));
+    /* Safari 5.1+, Chrome 10+ */
+    background: -webkit-linear-gradient(#b050f9, #be65ff);
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(#b050f9, #be65ff);
+    background: url(images/gradient.png);
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+
+nav, article {
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+input {
+    background: #b050f9;
+}
+
+#btn-register {
+    background: transparent;
+    color: #ffffff;
+    /*TODO: button inset or outset!!!*/
+}
+
+footer p a {
+    color: #aaaaaa;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+}

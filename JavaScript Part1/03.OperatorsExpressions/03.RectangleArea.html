@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Operators Expressions</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style type="text/css">
+		label { font-size: 18px;}
+		button{
+			padding: 10px 30px;
+			border: 1px solid yellow; 
+			text-decoration: none;
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="inputdiv">
+		<div>
+		
+			<label for="width">Width:</label>
+			<input type="text" id="width" />
+		</div>
+		<div>
+		
+			<label for="height">Height:</label>
+			<input type="text" id="height" />
+			<button onclick="area()">Calc Area</button>
+
+		</div>
+	</div>
+		<div></div>
+		<div id="js-console"></div>				 
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+		function area() {
+		var width = jsConsole.readFloat("#width");
+		var height = jsConsole.readFloat("#height")
+
+		jsConsole.writeLine("Area: " + width * height);
+		}
+		</script>
+</body>
+</html>

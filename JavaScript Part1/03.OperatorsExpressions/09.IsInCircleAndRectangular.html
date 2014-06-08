@@ -1,0 +1,56 @@
+<html>
+
+<head>
+	<title>Data types and variables</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style type="text/css">
+		label { font-size: 18px;}
+		button{
+			padding: 10px 30px;
+			border: 1px solid yellow; 
+			text-decoration: none;
+			
+		}
+	</style>
+</head>
+	
+<body>
+	<div id="inputdiv">
+		<div class="input">
+		
+			<label for="pointX">Input point X:</label>
+			<input type="text" id="pointX" />
+			<label for="pointY">Input point Y:</label>
+			<input type="text" id="pointY" />
+			<button onclick="withinCircleAndSquare()">InOrOut</button>
+
+		</div>
+	</div>
+
+		<div id="js-console"></div>				 
+		<script src="scripts/js-console.js"></script>
+
+	<script>
+		function withinCircleAndSquare() {
+			var pointX = jsConsole.readFloat("#pointX"),
+				pointY = jsConsole.readFloat("#pointY"),
+				inCircle = false,
+				inSquare = false;
+
+			if (Math.sqrt((pointX-1)*(pointX-1) + (pointY-1)*(pointY-1)) < 3) {
+				inCircle = true;
+			}
+
+			if ((pointX < 5 && pointX > -1) && (pointY < 1 && pointY > -1)) {
+				inSquare = true;
+			}
+
+			jsConsole.writeLine("Inside the circle: " + inCircle);		
+			jsConsole.writeLine("Inside the square: " + inSquare);
+		};		
+	</script>
+</body>
+
+</html>
+
+

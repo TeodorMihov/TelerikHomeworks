@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+        function reverseString(string) {
+            var result = [];
+            for (var i = string.length - 1; i >= 0; i--) {
+                result.push(string[i]);
+            }
+            jsConsole.writeLine(result);
+        }
+
+        var input = "Simple";
+
+        reverseString(input);
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+
+<head>
+	<title>Data types and variables</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style type="text/css">
+		label { font-size: 18px;}
+		button{
+			padding: 10px 30px;
+			border: 1px solid yellow; 
+			text-decoration: none;
+			
+		}
+	</style>
+</head>
+	
+<body>
+	<div id="inputdiv">
+		<div class="input">
+		
+			<label for="number">Input number for check:</label>
+			<input type="text" id="number" />
+			<button onclick="isSeven()">IsThirdDigitSeven</button>
+
+		</div>
+	</div>
+
+		<div id="js-console"></div>				 
+		<script src="scripts/js-console.js"></script>
+
+	<script>
+		function isSeven() {
+			var result = jsConsole.readFloat("#number");
+
+			if((parseInt(result/100) % 10) == 7)
+			{
+				jsConsole.writeLine("Third digit of number: " + result + " is 7");
+			}
+			else
+			{
+				jsConsole.writeLine("Third digit of number: " + result + " is NOT 7");
+			}
+	
+		}		
+	</script>
+</body>
+
+</html>
+
+

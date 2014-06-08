@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Web from</title>
+        <link rel="stylesheet" type="text/css" href="style/forms.css" />
+    </head>
+    <body>
+        <div id="content">
+            <form method="post" action="#">
+                <fieldset>
+                    <table>
+                        <tfoot>
+                        <tr>
+                            <td colspan="2" class="inputCol">
+                                <input type="submit" name="submit" value="Submit" />
+                                <input type="reset" value="Clear This Form" />
+                            </td>                            
+                        </tr>
+                        </tfoot>
+                        <tr>
+                            <td class="formLabel">
+                                <label for="LastName">Last Name</label>
+                            </td>
+                            <td class="inputCol">
+                                <input type="text"  id="LastName" placeholder="Shompalov" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formLabel">
+                                <label for="FirstName" >First Name</label>
+                            </td>
+                            <td class="inputCol">
+                                <input type="text"  id="FirstName" placeholder="Kalistrati" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formLabel">
+                                <label for="Address">Address</label>
+                            </td>
+                            <td class="inputCol">
+                                <textArea id="Address" rows="5" cols="25" placeholder="everywhere str. everytime N42"></textArea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formLabel">
+                                <label for="City">City</label>
+                            </td>
+                            <td class="inputCol">
+                                <input type="text" id="City" placeholder="In the matrix"/>
+                                <label for="State">State</label>
+                                <input type="text" name="State" id="State" placeholder="Neo`s town" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formLabel">
+                                <label for="Zip">Zip/Postal Code</label>
+                            </td>
+                            <td class="inputCol">
+                                <input type="number" id="Zip" placeholder="42" />                                                          
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formLabel" >
+                                <label for="Country">Country</label>
+                            </td>
+                            <td class="inputCol">
+                                <select name="Country" id="Country">
+                                    <option>Other</option>
+                                    <option selected="selected">Bulgaria</option>                                    
+                                </select>                                                          
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formLabel">
+                                <label for="Phone">Phone(country code, area code, number)</label>
+                            </td>
+                            <td class="inputCol">
+                                (+<input  id="Phone" placeholder="359" size="5"/>)  
+                                <input  placeholder="883" size="5" />-
+                                <input  placeholder="666967878" size="10" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formLabel">
+                                <label for="Email">Email</label>
+                            </td>
+                            <td class="inputCol">
+                                <input type="email" id="Email" placeholder="kalcho@kalistratiET.com" />                                                          
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formLabel">
+                                Birthday
+                            </td>
+                            <td class="inputCol">
+                                <label for="BirthdayMonth">Month</label>
+                                <input id="BirthdayMonth" type="text" placeholder="17" />
+                               
+                                <label for="BirthdayDay">Day</label>
+                                <input id="BirthdayDay" type="text" placeholder="42"/>
+                               
+                                <label for="BirthdayYear">Year(4 digit)</label>
+                                <input id="BirthdayYear" type="text" placeholder="1989"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formLabel">
+                                <label for="Genre">Genre</label>
+                            </td>
+                            <td class="inputCol">
+                                <select id="Genre">
+                                    <option>Female</option>
+                                    <option selected="selected">Male</option>
+                                </select>                                                          
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formLabel">
+                                Starting date
+                            </td>
+                            <td class="inputCol">                                
+                                <input type="radio" name="RadioActive" id="spring" value="spring" checked="checked"/>
+                                <label for="spring">Sprint </label>                              
+                               
+                                <input type="radio" name="RadioActive" id="summer" value="summer"/>
+                                <label for="summer">Summer </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formLabel">
+                                <label for="Comments">Comments/Questions</label>
+                            </td>
+                            <td class="inputCol">                                
+                                <textarea name="Comments" id="Comments" cols="30" rows="4" readonly="readonly">Show me the money - minerals and gas increased by 10000</textarea>
+                            </td>
+                        </tr>                        
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>

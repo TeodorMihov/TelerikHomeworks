@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	
+	<script>
+function clone(obj) {
+    if (null == obj || "object" != typeof obj) return obj;
+    var copy = obj.constructor();
+    for (var attr in obj) {
+        if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+    }
+    return copy;
+}
+	
+	var test = {
+		a: 5,
+		b: "asd",
+		c: 12
+	}
+
+	var deepCopyOfTest = clone(test);
+	test.a = 5 + test.b;
+	jsConsole.writeLine(test.a + " " + test.b + " " + test.c);
+	jsConsole.writeLine(deepCopyOfTest.a + " " + deepCopyOfTest.b + " " + deepCopyOfTest.c);
+	</script>
+</body>
+</html>

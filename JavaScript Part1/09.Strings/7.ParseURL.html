@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+        function parseURL(input) {
+            var url = {
+                protocol: input.substring(0,input.indexOf(":",0)),
+                server: input.substring(input.indexOf(":", 0) + 3, input.indexOf("/", input.indexOf(":", 0) + 3)),
+                resourse: input.substring(input.indexOf("/", input.indexOf(":") + 3))
+            };
+
+            jsConsole.writeLine("protocol: " + url.protocol);
+            jsConsole.writeLine("server: " + url.server);
+            jsConsole.writeLine("resourse: " + url.resourse)
+        }
+
+        var input = "http://www.devbg.org/forum/index.php";
+
+        parseURL(input);
+    </script>
+</body>
+</html>

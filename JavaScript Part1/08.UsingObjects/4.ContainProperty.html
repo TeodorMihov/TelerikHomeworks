@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	
+	<script>
+		function hasProperty(obj, prop) {
+			for (var i in obj) {
+				if (i = prop) {
+					return true;
+				};
+			}
+			return false;
+		}
+
+		var test = {
+			tuturutka: "VencitoKucarov",
+			kanaleto: "SlaviTrifonov",
+			slavishow: "AlexRaeva"
+		}
+
+		var testingTest = hasProperty(test, "kanaleto");
+		
+		jsConsole.writeLine(testingTest);
+	</script>
+</body>
+</html>

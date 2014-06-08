@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	
+	<script>
+	    var firstArr = ['d', 'b', 'c', 'd', 'd', 'd'],
+	        secondArr = ['d', 'b', 'c', 'd', 'd', 'f'],
+	    	lengthCounter = 0;
+
+    	if (firstArr.length == secondArr.length) {
+    		for(var i = 0; i < firstArr.length; i++) {
+	    		if (firstArr[i] < secondArr[i]) {
+	    			jsConsole.writeLine("[" + firstArr + "] is before [" + secondArr + "] lexicographically");
+	    			break;
+	    		}
+	    		else if (firstArr[i] > secondArr[i]) {
+	    			jsConsole.writeLine("[" + firstArr + "] is after [" + secondArr + "] lexicographically");
+	    			break;
+	    		}
+	    		else {
+	    			lengthCounter++;
+	    			console.log(lengthCounter);
+	    			if (lengthCounter == firstArr.length) {
+	    				jsConsole.writeLine("Arrays are equals!!!");
+	    				break;
+	    			}
+	    		}
+    		}
+    	}
+    	else if (firstArr.length < secondArr.length) {
+    		jsConsole.writeLine("[" + firstArr + "] is before [" + secondArr + "] lexicographically");
+    	}
+    	else if(firstArr.length > secondArr.length) {
+    		jsConsole.writeLine("[" + firstArr + "] is after [" + secondArr + "] lexicographically")
+    	}
+	</script>
+</body>
+</html>

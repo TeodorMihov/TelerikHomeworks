@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Calculator</title>
+    <link href="Style.css" rel="stylesheet" />
+</head>
+<body>
+    <section>
+        <ul class="main-menu">
+            <li><span>V</span>iew</li>
+            <li><span>E</span>dit</li>
+            <li><span>H</span>elp</li>
+        </ul>
+
+        <form action="/" method="post">
+            <input type="text" class="display" value="88544557" />
+        </form>
+
+        <div class="binary numbers">
+            <ul>
+                <li>0000</li>
+                <li>0000</li>
+                <li>0000</li>
+                <li>0000</li>
+                <li>0000</li>
+                <li>0000</li>
+                <li>0000</li>
+                <li>0000</li>
+            </ul>
+            <ul>
+                <li>63</li>
+                <li>47</li>
+                <li>32</li>
+            </ul>
+            <ul>
+                <li>0000</li>
+                <li>0000</li>
+                <li>1000</li>
+                <li>0111</li>
+                <li>0001</li>
+                <li>1011</li>
+                <li>1011</li>
+                <li>0111</li>
+            </ul>
+            <ul>
+                <li>31</li>
+                <li>15</li>
+                <li>0</li>
+            </ul>
+        </div>
+        <div class="keyboard">
+            <form action="/" method="post">
+                <div>
+                    <button disabled>&nbsp;</button>
+                    <button>Mod</button>
+                    <button disabled>A</button>
+                    <button>MC</button>
+                    <button>MR</button>
+                    <button>MR</button>
+                    <button>M+</button>
+                    <button>M-</button>
+                </div>
+                <div>
+                    <button>(</button>
+                    <button>)</button>
+                    <button disabled>B</button>
+                    <button>←</button>
+                    <button>CE</button>
+                    <button>C</button>
+                    <button>+-</button>
+                    <button disabled>√</button>
+                </div>
+                <div>
+                    <button>RoL</button>
+                    <button>RoR</button>
+                    <button disabled>C</button>
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button>/</button>
+                    <button disabled>%</button>
+                </div>
+                <div>
+                    <button>Or</button>
+                    <button>Xor</button>
+                    <button disabled>D</button>
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button>*</button>
+                    <button disabled>1/x</button>
+                </div>
+                <div>
+                    <button class="equal-button">=</button>
+                    <div>
+                        <button>Lsh</button>
+                        <button>Rsh</button>
+                        <button disabled>E</button>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>-</button>
+                    </div>
+                    <div>
+                        <button>Not</button>
+                        <button>And</button>
+                        <button disabled>F</button>
+                        <button class="zero-button">0</button>
+                        <button disabled>.</button>
+                        <button>+</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div>
+            <div class="system">
+                <ul class="changeSystem">
+                    <li><label><input type="radio" name="numeralSystem" value="hex" /> Hex</label></li>
+                    <li><label><input type="radio" name="numeralSystem" value="dec" checked /> Dec</label></li>
+                    <li><label><input type="radio" name="numeralSystem" value="oct" /> Oct</label></li>
+                    <li><label><input type="radio" name="numeralSystem" value="bin" /> Bin</label></li>
+                </ul>
+                <ul class="changeSystem">
+                    <li><label><input type="radio" name="wordSize" value="qword" checked /> Qword</label></li>
+                    <li><label><input type="radio" name="wordSize" value="dword" /> Dword</label></li>
+                    <li><label><input type="radio" name="wordSize" value="word" /> Word</label></li>
+                    <li><label><input type="radio" name="wordSize" value="byte" /> Byte</label></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

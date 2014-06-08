@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        function Solve(input) {
+            var result = 0,
+                allVariables = [];
+
+            for (var row = 0; row < input.length; row++) {
+                var line = input[row],
+                    varName = '',
+                    numbers = [],
+                    operator = '',
+                    state = 'search def';
+
+                //console.log(row);
+
+                for (var i = 0; i < line.length; i++) {
+                    var symbol = line[i];
+                    //console.log(line);
+
+                    switch (state) {
+                        case 'search def':
+                            if (symbol === '(' && line[i + 1] === 'd' && line[i + 2] === 'e' && line[i + 3] === 'f') {
+                                i += 4;
+                                //console.log('in def');
+                                state = 'skip space';
+                            }
+                            else {
+                                state = 'calculate brackets';
+                            }
+                            break;
+                        case 'skip space':
+                            if (symbol === ' ') {
+                                continue;
+                            }
+                            else {
+                                state = 'get name'
+                            }
+                        case 'get name':
+                            varName = getVarName(line, i);
+                            i += varName.length;
+                            state = 'calculate brackets';
+                            break;
+                        case 'calculate brackets':
+                            operator = findOperator(line);
+                            numbers = getNumbers(line, i);
+                            i = line.length;
+
+                            var bracketsResult = 0;
+                            bracketsResult = makeCalculation(operator, numbers);
+
+                            if (bracketsResult === 'Division by zero!') {
+                                return 'Division by zero! At Line:' + (row + 1);
+                            }
+
+                            allVariables[varName] = bracketsResult;
+
+                            if (row === (input.length - 1)) {
+                                result = bracketsResult;
+                            }
+                            break;
+                        default:
+
+                    }
+                }
+            }
+
+            return result;
+
+            function getVarName(line, index) {
+                var len = line.length,
+                    varName = '';
+
+                for (var i = index; i < len; i++) {
+                    var symbol = line[i];
+
+                    if (symbol === ' ') {
+                        return varName;
+                    }
+                    varName += symbol;
+                }
+            }
+
+            function makeCalculation(operator, numbers) {
+                var len = numbers.length,
+                    result = numbers[0];
+
+                if (operator === undefined) {
+                    return result;
+                }
+
+                if(len === 1) {
+                    return result;
+                }
+
+                for (var i = 1; i < len; i++) {
+                    
+                    if (operator === '+') {
+                        result += numbers[i];
+                    }
+                    if (operator === '-') {
+                        result -= numbers[i];
+                    }
+                    if (operator === '*') {
+                        result *= numbers[i];
+                    }
+                    if (operator === '/') {
+
+                        if (numbers[i] === 0) {
+                            result = 'Division by zero!';
+                            return result;
+                        }
+                        result /= numbers[i];
+                    }
+                }
+
+                return result;
+            }
+
+            function getNumbers(line, index) {
+                var len = line.length,
+                    digit = '',
+                    numbers = [];
+
+                for (var i = index; i < len; i++) {
+                    var symbol = line[i];
+
+                    if (symbol === ' ' || symbol === ')') {
+
+                        if (validVariable(digit.trim())) {
+                            numbers.push(allVariables[digit.trim()]);
+                        }
+                        if (!isNaN(parseInt(digit))) {
+                            numbers.push(parseInt(digit));
+                        }
+                        digit = '';
+                    }
+                    digit += symbol;
+                }
+
+                return numbers;
+            }
+
+            function validVariable(digit) {
+                var len = digit.length,
+                    isValid = true;
+
+
+
+                if (digit === '') {
+                    return false;
+                }
+
+                if (!isNaN(digit[0])) {
+                    return false;
+                }
+
+                for (var i = 0; i < len; i++) {
+
+                    if ((digit[i] >= 'A' && digit[i] <= 'z') || (digit[i] >= '0' && digit[i] <= '9')) {
+                        isValid = true;
+                        continue;
+                    }
+                    isValid = false;
+                }
+
+                return isValid;
+            }
+
+            function findOperator(line) {
+                var len = line.length;
+
+                for (var i = 0; i < len; i++) {
+                    var symbol = line[i];
+
+                    if (symbol === '+') {
+                        return '+';
+                    }
+                    if (symbol === '-') {
+                        return '-';
+                    }
+                    if (symbol === '*') {
+                        return '*';
+                    }
+                    if (symbol === '/') {
+                        return '/';
+                    }
+                }
+            }
+        }
+
+        var input = [
+            '(def func 10)',
+            '(def newFunc (+  func 2))',
+            '(def sumFunc (+ func func newFunc 0 0 0))',
+            '(* sumFunc 2)',
+        ];
+        var result = Solve(input);
+        console.log('Result: ' + result);
+    </script>
+</head>
+<body>
+    Look at the console!
+</body>
+</html>

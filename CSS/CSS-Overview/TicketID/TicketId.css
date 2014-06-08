@@ -1,0 +1,36 @@
+﻿* {
+    padding:0;
+    margin:0;
+    background-color:#808080;
+    color:#fff;
+}
+h1 {
+    color:#bfb8b8;
+    margin-bottom:20px;
+}
+dd{
+    position:relative;
+    left:120px;
+    top:-18px;
+    color:#bfb8b8;
+}
+a{
+    text-decoration:none;
+    position:relative;
+    top:10px;
+}
+#name:before{
+    content:url(https://startalk.umd.edu/workshops/2009/GVA/content/_assets/css/images/icon-green-check-circle-small.gif);
+}
+.name,.email,.action{
+    color:#ffd800;
+}
+.name:last-child{
+    color:#ff0000;
+}
+.action:first-child{
+    color:#bfb8b8;
+}
+dd:last-child{
+    color:#ff6a00;
+}

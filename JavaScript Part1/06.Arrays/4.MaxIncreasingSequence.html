@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	
+	<script>
+		var input = [3, 2, 3, 4, 2, 2, 4],
+			counter = 0,
+			maxCounter = 0,
+			endIndex;
+
+			for (var i = 0; i < input.length; i++) {
+				if (input[i] < input[i+1]) {
+					counter++;
+
+					if (maxCounter <= counter) {
+						maxCounter = counter;
+						endIndex = i+1;
+					}
+				}
+				else {
+					counter = 0;
+				}
+			}
+
+			var result = input.splice(endIndex - maxCounter, maxCounter + 1);
+
+			jsConsole.writeLine("Maximal increasing sequence: " + result);
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	
+	<script>
+		function findYongestPerson (persons) {
+			var yongest = persons[0];
+
+			for (var i in persons) {
+				if (yongest.age > persons[i].age) {
+					yongest = persons[i];
+				};
+			}
+			jsConsole.writeLine("Yongest person is: " + yongest.firstname + " " + yongest.lastname + " " + yongest.age);
+		}
+
+		var persons = [
+		  { firstname : 'Gosho', lastname: 'Petrov', age: 32 }, 
+		  { firstname : 'Bay', lastname: 'Ivan', age: 81} 
+		  ];
+
+		findYongestPerson(persons);
+	</script>
+</body>
+</html>

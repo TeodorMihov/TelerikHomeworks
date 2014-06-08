@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Task2</title>
+</head>
+<body>
+    <script>
+        function Solve(input) {
+            var fields = [],
+                matrixRowAndCol = input[0].split(' ').map(Number),
+                rows = matrixRowAndCol[0],
+                cols = matrixRowAndCol[1],
+                fillMatrixNumber = 1,
+                currentRow = 0,
+                currentCol = 0,
+                sumOfNumbers = 0,
+                coords = {
+                    row: 0,
+                    col: 0
+                };
+            for (var i = 0; i < rows; i++) {
+                fields[i] = [];
+                fillMatrixNumber = Math.pow(2,i);
+                for (var j = 0; j < cols; j++) {
+                    fields[i][j] = fillMatrixNumber;
+                    fillMatrixNumber++;
+                }
+            }
+            var fieldDirections = []
+            for (var i = 0; i < rows; i++) {
+                fieldDirections[i] = [];
+                var line = input[i+1].split(' ');
+                for (var j = 0; j < cols; j++) {
+                    fieldDirections[i][j] = line[j]
+                }
+            }
+            while (true) {
+                if (currentRow < 0 || currentRow >= rows ||
+                    currentCol < 0 || currentCol >= cols) {
+                    return "successed with " +sumOfNumbers;
+                }
+                if (fields[currentRow][currentCol] === 'a') {
+                    return 'failed at (' + currentRow + ', ' + currentCol + ')';
+                }
+                //find result, makes field visited
+                sumOfNumbers += fields[currentRow][currentCol];
+                fields[currentRow][currentCol] = 'a';
+                //move
+                if (fieldDirections[currentRow][currentCol] === 'dr') {
+                    currentRow++;
+                    currentCol++;
+                }
+                else if (fieldDirections[currentRow][currentCol] === 'ur') {
+                    currentRow--;
+                    currentCol++;
+                }
+                else if (fieldDirections[currentRow][currentCol] === 'ul') {
+                    currentRow--;
+                    currentCol--;
+                }
+                else if (fieldDirections[currentRow][currentCol] === 'dl') {
+                    currentRow++;
+                    currentCol--;
+                }
+            }
+        }
+
+        var args = [
+          '3 5',
+          'dr dl dr ur ul',
+          'dr dr ul ur ur',
+          'dl dr ur dl ur'
+        ];
+        var args2 = [
+            '3 5',
+            'dr dl dl ur ul',
+            'dr dr ul ul ur',
+            'dl dr ur dl ur'
+        ];
+        console.log(Solve(args));
+    </script>
+</body>
+</html>

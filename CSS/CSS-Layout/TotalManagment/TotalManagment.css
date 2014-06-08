@@ -1,0 +1,52 @@
+﻿* {
+  padding: 0;
+  margin: 0;
+  font-family: Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace; }
+
+body {
+  width: 720px;
+  background: #3B3B3B;
+  color: #A9A9A9;
+  font: 14px/1.2 Verdana, sans-serif; }
+
+form {
+  background-color: #343434;
+  padding-left: 10px; }
+  form fieldset {
+    border: none;
+    padding: 20px 10px 20px 55px;
+    background: url(images/monitor.png) no-repeat 5px 15px; }
+
+.button-alert {
+  margin-top: -3px;
+  padding: 5px 15px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background: rgba(229, 110, 110, 0.9);
+  box-shadow: inset 0px -15px 5px #EC0B0F;
+  color: #fff;
+  text-transform: uppercase; }
+
+input {
+  margin: 10px; }
+  input::-webkit-input-placeholder {
+    color: black; }
+  input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: black; }
+  input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: black; }
+  input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: black; }
+
+h1 {
+  color: #EFDA1F;
+  font-size: 2.3em;
+  margin: 20px 10px 20px; }
+
+span {
+  color: white; }
+
+/*# sourceMappingURL=TotalManagment.css.map */

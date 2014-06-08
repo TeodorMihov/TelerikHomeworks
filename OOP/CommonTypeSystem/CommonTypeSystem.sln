@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainProgram", "MainProgram\MainProgram.csproj", "{CE36C2B7-5142-4023-B894-179C5E22037D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverrideStandardMethods", "OverrideStandardMethods\OverrideStandardMethods.csproj", "{20ABC64F-AC32-4DE5-A4C7-2488BB8AACCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE36C2B7-5142-4023-B894-179C5E22037D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE36C2B7-5142-4023-B894-179C5E22037D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE36C2B7-5142-4023-B894-179C5E22037D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE36C2B7-5142-4023-B894-179C5E22037D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20ABC64F-AC32-4DE5-A4C7-2488BB8AACCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20ABC64F-AC32-4DE5-A4C7-2488BB8AACCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20ABC64F-AC32-4DE5-A4C7-2488BB8AACCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20ABC64F-AC32-4DE5-A4C7-2488BB8AACCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

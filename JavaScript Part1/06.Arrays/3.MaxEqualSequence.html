@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	
+	<script>
+		var input = [2,1,1,2,3,3,2,2,2,1],
+			counter = 1,
+			maxCounter = 0,
+			currentElement;
+
+		for (var i = 0; i < input.length; i++) {
+			if (input[i] == input[i+1]) {
+				counter++;
+
+				if (counter > maxCounter) {
+					maxCounter = counter;
+					currentElement = input[i];
+				}
+			}
+			else {
+				counter = 1;
+			}
+		}
+
+		jsConsole.writeLine("Element: " + currentElement + " repeats: " + maxCounter + "times");
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+
+<head>
+	<title>Data types and variables</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<style type="text/css">
+		label { font-size: 18px;}
+		button{
+			padding: 10px 30px;
+			border: 1px solid yellow; 
+			text-decoration: none;
+			
+		}
+	</style>
+</head>
+	
+<body>
+	<div id="inputdiv">
+		<div class="input">
+		
+			<label for="number">Input number for check:</label>
+			<input type="text" id="number" />
+			<button onclick="thirdBit()">ThirdBitIs</button>
+
+		</div>
+	</div>
+
+		<div id="js-console"></div>				 
+		<script src="scripts/js-console.js"></script>
+
+	<script>
+		function thirdBit() {
+			var numberForCheck = jsConsole.readInteger("#number");
+			var p = 3,
+				mask = 1 << p,
+				bit = numberForCheck & mask,
+				result = bit >> p;
+				jsConsole.writeLine("Binary representation: " + numberForCheck.toString(2));
+				jsConsole.writeLine("Third bit is: " + result);
+		};		
+	</script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+        function replaceWhiteSpaces(input) {
+            var replacedText = '',
+                symbol = '&amp;nbsp';  // &amp;- escape &nbsp;
+            for (var i = 0; i < input.length; i++) {
+                if (input[i] === ' ') {
+                    replacedText += symbol;
+                }
+                else {
+                    replacedText += input[i];
+                }
+            }
+            return replacedText;
+        }
+
+        var text = "Write a function that replaces non breaking white-spaces in a text with &nbsp";
+        jsConsole.writeLine(text);
+        jsConsole.writeLine(replaceWhiteSpaces(text));
+    </script>
+</body>
+</html>

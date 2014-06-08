@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="first">random text for test! With ID!</div>
+    <div>random text for test!</div>
+    <div>random text for test!</div>
+
+    <script>
+    if (!document.querySelector || !document.querySelectorAll) {
+    	document.querySelectorAll = function (selector) {
+    		if (selector.charAt(0) === "#" ) {
+    			return document.getElementById(selector.substr(1));
+    		};
+    		else if (selector.charAt(0)) {
+    			return document.getElementsByClassName(selector.substr(1));
+    		};
+    		else {
+    			return document.getElementByTagName(selector);
+    		}
+    	}
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Arrays</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	
+	<script>
+		function grouped(persons, prop) {
+	        var asArray = new Array();
+	        for (var i = 0; i < persons.length; i++) {
+	        	for (var j in persons[i]) {
+	        		if (j == prop) {
+	        			asArray.push(persons[i][j]);
+	        		};
+	        	}
+	        }
+	        var wordsCount = {};
+                var word = {};
+                for (var i in asArray) {
+                    word = asArray[i];
+                    if (wordsCount[word]) {
+                        wordsCount[word]++;
+                    }
+                    else {
+                        wordsCount[word] = 1;
+                    }
+                }
+
+                return wordsCount;
+	    }
+
+		var persons = [
+			{firstName: 'Georgi', lastName: 'Georgiev', age: 24},
+			{firstName: 'Pesho', lastName: 'Peshev', age: 26},
+			{firstName: 'Djoko', lastName: 'Rosich', age: 56},
+			{firstName: 'Vin', lastName: 'Diesel', age: 54}
+		];
+
+		var groupedByAge = grouped(persons, "age");
+        var groupedByFirstName = grouped(persons, "firstName");
+
+        for (var i in groupedByAge) {
+            jsConsole.writeLine(i+" => "+ groupedByAge[i]);
+        }
+        for (var i in groupedByFirstName) {
+            jsConsole.writeLine(i+" => "+groupedByFirstName[i]);
+        }
+	</script>
+</body>
+</html>

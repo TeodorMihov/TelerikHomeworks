@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Canvas</title>
+</head>
+<body>
+	<div id="container"></div>
+	<script src="kinetic.min.js"></script>
+	
+	<script type="text/javascript">
+	var layer = new Kinetic.Layer(),
+		stage = new Kinetic.Stage({
+			container: 'container',
+			width: 600,
+			height: 300
+		}),
+	speed = 1,
+	direction = '',
+	snakePart = [];
+
+	for ( i = 0; i < 2; i += 1) {
+		var currentSnakePart = {
+			body:
+			new Kinetic.Rect({
+				x: 10 + i*10,
+				y: 10,
+				width: 15,
+				height: 15,
+				fill: 'black',
+				stroke: 'black'
+			})		
+		};
+		snakePart.push(currentSnakePart);
+	}
+
+	for (i = 0; i<2; i+=1){
+		snakePart[i].move = function move(){
+			console.log(this);
+			var newX = snakePart[i].body.getX(),
+				newY = snakePart[i].body.getY();
+				if (direction === 'left') {
+					snakePart[i].body.setX(newX -= speed);
+				}
+				else if (direction === 'right') {
+					snakePart[i].body.setX(newX += speed);
+				}
+				else if (direction === 'up') {
+					snakePart[i].body.setY(newY -= speed);
+				}
+				else if (direction === 'down') {
+					snakePart[i].body.setY(newY += speed);
+				}
+			}
+	}
+	 layer.add(snakePart[0].body);
+	 // layer.add(snakePart[1].body);
+	 // layer.add(currentSnakePart.body);
+	 console.log(snakePart[0].move)
+
+	var animation = new Kinetic.Animation(snakePart[0]move, layer);
+
+	animation.start();
+	stage.add(layer);
+
+
+
+	document.addEventListener('keydown', function(e){
+		if (e.keyCode === 37) {
+			direction = 'left';
+		}
+		else if(e.keyCode === 38){
+			direction = 'up';
+		}
+		else if(e.keyCode === 39){
+			direction = 'right';
+		}
+		else if(e.keyCode === 40){
+			direction = 'down';
+		}
+	});
+	</script>
+</body>
+</html>

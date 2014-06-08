@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+
+        function findSubstring(string, sub) {
+            string = string.toLowerCase();
+            sub = sub.toLowerCase();
+            var indexOfSub = string.indexOf(sub);
+            var count = 0;
+            while (indexOfSub > -1) {
+                count++;
+                indexOfSub = string.indexOf(sub, indexOfSub + 1);
+            }
+            jsConsole.writeLine("The result is:" + count);
+        }
+
+        var input = "We are living in an yellow submarine. We don't have anything else. Inside the submarine is very tight. So we are drinking all the day.We will move out of it in 5 days";
+        target = "in";
+
+        findSubstring(input, target);
+    </script>
+</body>
+</html>

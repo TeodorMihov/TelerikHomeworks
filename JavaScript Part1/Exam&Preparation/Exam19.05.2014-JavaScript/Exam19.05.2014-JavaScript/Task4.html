@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function Solve(input) {
+            var a = input[0],b=input[1]
+            if (a > 0 && b > 0) return 1; if (a < 0 && b < 0) return 2; if (a > 0 && b < 0) return 3; if (a < 0 && b > 0) return 0;
+        }
+        var args = ['-1', '-1'];
+        Solve(args);
+    </script>
+</body>
+</html>
