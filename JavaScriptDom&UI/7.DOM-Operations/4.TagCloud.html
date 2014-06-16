@@ -1,0 +1,66 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tag cloud</title>
+</head>
+<body>
+    <script>
+        var tags = ["cms", "javascript", "js", 
+                    "ASP.NET MVC", ".net", ".net", "css", 
+                    "wordpress", "xaml", "js", "http", "web", 
+                    "asp.net", "asp.net MVC", "ASP.NET MVC", 
+                    "wp", "javascript", "js", "cms", "html", 
+                    "javascript", "http", "http","CMS",];
+
+        generateTagCloud(tags,17,42);
+
+        function generateTagCloud(tags, minFontSize, maxFontSize) {
+            var countElements = [],
+                maxCountElemNumber = 0;
+            
+            for (var i = 0, len = tags.length; i < len; i += 1) {
+                var currentTag = tags[i];
+                if (countElements[currentTag]) {
+                    countElements[currentTag]++;
+                    if (maxCountElemNumber < countElements[currentTag]) {
+                        maxCountElemNumber = countElements[currentTag];
+                    }
+
+                }
+                else {
+                    countElements[currentTag] = 1;
+                    currentElemNumber = 0;
+                }
+
+            }
+
+            var ul = document.createElement('ul');
+            ul.style.listStyle = 'none';
+
+            for (var tagName in countElements) {
+                var li = document.createElement('li');
+                li.innerHTML = tagName;
+                li.style.fontSize = calcFontSize(countElements[tagName], maxCountElemNumber) + 'px';
+                ul.appendChild(li);
+            }
+
+            document.body.appendChild(ul);
+
+            function calcFontSize(number, maxNumber) {
+                if (number === 1) {
+                    return minFontSize;
+                }
+                else if (number === maxNumber) {
+                    return maxFontSize;
+                }
+                else {
+                    console.log(maxNumber);
+                    return number * (maxFontSize / maxNumber);
+                }
+                
+            }
+        }
+    </script>
+</body>
+</html>
