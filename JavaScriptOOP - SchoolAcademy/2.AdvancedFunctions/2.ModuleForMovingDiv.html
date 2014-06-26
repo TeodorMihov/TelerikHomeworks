@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Module for moving divs</title>
+    <script src="kinetic.min.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        var movingShapes = (function () {
+            var stage = new Kinetic.Stage({
+                container: 'container',
+                width: 500,
+                height: 500
+            }),
+                layer = new Kinetic.Layer();
+
+            function add(form) {
+                if (form === 'circle') {
+                    var circle = new Kinetic.Circle({
+                        x: randomNumber(20, 400),
+                        y: randomNumber(20, 400),
+                        radius: 10,
+                        stroke: randomColor(),
+                        fill: randomColor()
+                    });
+                    layer.add(circle);
+                    stage.add(layer);
+                }
+                if (form === 'rect') {
+                    var rect = new Kinetic.Rect({
+                        x: randomNumber(20, 400),
+                        y: randomNumber(20, 400),
+                        width: 20,
+                        height: 20,
+                        stroke: randomColor(),
+                        fill: randomColor()
+                    })
+                    layer.add(rect);
+                    stage.add(layer);
+                }
+
+                var lastTime = 100,
+                    frameRate = 1000,
+                    anim = new Kinetic.Animation(function(frame) {
+                    if(frame.time > (lastTime + frameRate)){
+                        if (circle) {
+                            circle.setX(randomNumber(20, 400));
+                            circle.setY(randomNumber(20, 400));
+                        }
+                        if (rect) {
+                            rect.setX(randomNumber(20, 400));
+                            rect.setY(randomNumber(20, 400));
+                        }
+
+                        lastTime = frame.time;
+                    }
+
+                }, layer);
+                anim.start();
+            }
+
+            return {
+                add: add
+            }
+        }());
+
+        function randomColor() {
+            function c() {
+                return Math.floor(Math.random()*256).toString(16)
+            }
+            return c()+c()+c();
+        }
+
+        function randomNumber(min, max) {
+            return (Math.random() * (max-min) + min) | 0;
+        }
+
+        movingShapes.add('circle');
+        movingShapes.add('rect');
+    </script>
+</body>
+</html>

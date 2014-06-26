@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Hierchy of classes</title>
+</head>
+<body>
+    <script>
+
+            function Vehicle(){
+                var self = this;
+                self.speed = 0;
+                self.propulsionUnits = [];
+                this.acelerate = function acelerate() {
+                    this.speed = 0;
+                    for (var i = 0; i < this.propulsionUnits.length; i++) {
+                        this.speed += this.propulsionUnits[i].aceleration;
+                    }
+                }
+            }
+
+            function WaterVehicle(propellers, fins, clockWise) {
+                for(var i = 0; i < propellers; i+=1) {
+                    this.propulsionUnits.push(new Propeller(fins,clockWise));
+                }
+                this.changeDirection = function changeDirection() {
+                    var newPropellersDirection = !this.propulsionUnits[0].clockWise;
+                    for(var i = 0; i < propellers; i += 1) {
+                        this.propulsionUnits[i].clockWise = newPropellersDirection;
+                    }
+                };
+            }
+            WaterVehicle.prototype = new Vehicle();
+
+            function LandVehicle (wheelSize){
+                for (var i = 0; i < 4; i += 1) {
+                    this.propulsionUnits.push(new Wheel(wheelSize));
+                }
+            }
+            LandVehicle.prototype = new Vehicle();
+
+            function AirVehicle(power, afterBurner) {
+                this.propulsionUnits.push(new PropellingNozzle(power, afterBurner));
+                this.switchAfterBurner = function(){
+                    this.propulsionUnits[0].afterBurner = !this.propulsionUnits[0].afterBurner;
+                }
+            }
+            AirVehicle.prototype = new Vehicle();
+
+            function Wheel (radius){
+                this.aceleration = Math.PI * 2 * radius;
+            }
+
+            function Propeller(fins, clockWise) {
+                this.clockWise = clockWise;
+                if(this.clockWise) {
+                    this.aceleration = fins;
+                }
+                else {
+                    this.aceleration = fins * -1;
+                }
+            }
+
+            function PropellingNozzle (power, afterBurner) {
+                this.afterBurner = afterBurner;
+                if(this.afterBurner) {
+                    this.aceleration = 2 * power;
+                }
+                else {
+                    this.aceleration = power;
+                }
+            }
+
+        var waterVehicle = new WaterVehicle(5,2,true);
+            waterVehicle.acelerate();
+            waterVehicle.changeDirection();
+            waterVehicle.acelerate();
+        console.log(waterVehicle.speed);
+
+        var airVehicle = new AirVehicle(25, true);
+            airVehicle.acelerate();
+        console.log(airVehicle.speed);
+
+        var landVehicle = new LandVehicle(1);
+            landVehicle.acelerate();
+        console.log(landVehicle.speed);
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Module</title>
+</head>
+<body>
+    <div id="wrapper"></div>
+    <div id="container"></div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <a href="#">No class</a>
+    <a href="#" class="button">Class button</a>
+    <a href="#">Without class</a>
+    <script>
+        var domModule = (function () {
+            function appendChild(element, parent) {
+                var parentElement = document.querySelector(parent);
+                parentElement.appendChild(element);
+            }
+
+            function removeChild(parent, element) {
+                var parentElement = document.querySelector(parent),
+                    elementForRemove = document.querySelector(element);
+
+                parentElement.removeChild(elementForRemove);
+            }
+
+            function addHandler(selector, event) {
+                var elementForEvent = document.querySelector(selector);
+                elementForEvent.addEventListener('click', function(){
+                    alert('Clicked');
+                })
+            }
+
+            function appendToBuffer(parent, element) {
+                var parentElement = document.querySelector('#' + parent),
+                    docFragment = document.createDocumentFragment(),
+                    elementsLength = 100;
+
+                for(var i = 0; i < elementsLength; i += 1) {
+                    docFragment.appendChild(element.cloneNode(true));
+                }
+
+                parentElement.appendChild(docFragment)
+            }
+
+            return {
+                appendChild: appendChild,
+                removeChild: removeChild,
+                addHandler: addHandler,
+                appendToBuffer: appendToBuffer
+            }
+        }());
+
+        var div = document.createElement("div");
+        domModule.appendChild(div,"#wrapper");
+        domModule.removeChild("ul","li:first-child");
+        domModule.addHandler("a.button", 'click',
+                function(){alert("Clicked")});
+        domModule.appendToBuffer("container", div.cloneNode(true));
+
+    </script>
+</body>
+</html>

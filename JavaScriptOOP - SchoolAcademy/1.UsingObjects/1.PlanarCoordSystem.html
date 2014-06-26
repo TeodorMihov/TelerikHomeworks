@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Planar coordinate system</title>
+</head>
+<body>
+<!--TASK 1-->
+<!--Write functions for working with shapes in  standard Planar coordinate system-->
+<!--Points are represented by coordinates P(X, Y)-->
+<!--Lines are represented by two points, marking their beginning and ending-->
+<!--L(P1(X1,Y1), P2(X2,Y2))-->
+<!--Calculate the distance between two points-->
+<!--Check if three segment lines can form a triangle-->
+    <script>
+        function createPoint(x, y) {
+            return {
+                x: x,
+                y: y
+            }
+        }
+        var pointOne = createPoint(1, 1),
+            pointTwo = createPoint(5, 5);
+
+        function makeLine(firstPoint, secondPoint) {
+            return {
+                firstPoint: firstPoint,
+                secondPoint: secondPoint
+            }
+        }
+
+        function calcDistance(firstPoint, secondPoint) {
+            return Math.sqrt((firstPoint.x - secondPoint.x) *(firstPoint.x - secondPoint.x) +
+                             (firstPoint.y - secondPoint.y) * (firstPoint.y - secondPoint.y))
+        }
+
+        function canFormTriangle(firstLine, secondLine, thirdLine) {
+            if((firstLine + secondLine) < thirdLine) {
+
+            }
+        }
+        console.log(calcDistance(pointOne,pointTwo));
+    </script>
+</body>
+</html>

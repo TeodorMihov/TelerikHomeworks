@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Groups persons</title>
+</head>
+<body>
+<!--Write a function that groups an array of persons by age, first or last name.
+The function must return an associative array, with keys -
+the groups, and values -arrays with persons in this groups-->
+<!--Use function overloading (i.e. just one function)-->
+<!--var persons = {…};-->
+<!--var groupedByFname = group(persons,"firstname");-->
+<!--var groupedByAge= group(persons,"age");-->
+
+    <script>
+        var persons = [
+            {firstName : "Gosho", age: 32},
+            {firstName : "Bay", lastname: "Ivan", age: 81 },
+            {lastname: "Geniev", age: 25 },
+            {firstName : "Petar", lastname: "Petrov", age: 30 },
+            {firstName : "Kalitko", lastname: "Kalitarov", age: 35 },
+        ];
+
+        groupingPersons(persons, 'firstName');
+        groupingPersons(persons, 'lastName');
+        groupingPersons(persons, 'age');
+//        groupingPersons(persons, 'first');
+
+        function groupingPersons(persons, key) {
+
+            if(key === 'firstName') {
+                var personsWithFirstName = checkForFirstName();
+
+                function compareWithFirstName(x, y) {
+                    if (x.firstName < y.firstName) {
+                        return -1
+                    }
+                    if (y.firstName < x.firstName) {
+                        return 1
+                    }
+
+                    return 0;
+                }
+
+                console.log(personsWithFirstName);
+                personsWithFirstName.sort(compareWithFirstName);
+            }
+            else if(key === 'lastName') {
+                var personsWithLastName = checkForLastName();
+
+                function compareWithLastName(x, y) {
+                    if (x.lastname < y.lastname) {
+                        return -1
+                    }
+                    if (y.lastname < x.lastname) {
+                        return 1
+                    }
+
+                    return 0;
+                }
+
+                personsWithLastName.sort(compareWithLastName);
+                console.log(personsWithLastName);
+            }
+            else if(key === 'age') {
+                var personsWithAge = checkForAge();
+
+                function compare(x, y) {
+                    if (x.age < y.age) {
+                        return -1
+                    }
+                    if (y.age < x.age) {
+                        return 1
+                    }
+
+                    return 0;
+                }
+
+                personsWithAge.sort(compare);
+                console.log(personsWithAge);
+            }
+            else {
+                throw new ArgumentExeption('Incorrect key: ' + key)
+            }
+
+            function checkForFirstName() {
+                var personsWithFirstName = [];
+                for (var i = 0; i < persons.length; i += 1) {
+                    if(persons[i].firstName) {
+                        personsWithFirstName.push(persons[i]);
+                    }
+                }
+                return personsWithFirstName;
+            }
+
+            function checkForLastName() {
+                var personsWithLastName = [];
+                for(var i = 0; i < persons.length; i += 1) {
+                    if(persons[i].lastname) {
+                        personsWithLastName.push(persons[i]);
+                    }
+                }
+
+                return personsWithLastName;
+            }
+
+            function checkForAge() {
+                var personsWithAge = [];
+                for(var i = 0; i < persons.length; i += 1) {
+                    if(persons[i].age){
+                        personsWithAge.push(persons[i]);
+                    }
+                }
+
+                return personsWithAge;
+            }
+        }
+    </script>
+</body>
+</html>

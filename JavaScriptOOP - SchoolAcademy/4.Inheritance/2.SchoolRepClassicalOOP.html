@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>School repository with classical OOP</title>
+</head>
+<body>
+    <script>
+        var SchoolRepository = (function(){
+            var School = function school(name, town, classesOfStudents){
+                this.name = name;
+                this.town = town;
+                this.classesOfStudents = classesOfStudents;
+            };
+
+            var Class = function classes(name, capacityOfStudents, setOfStudents, formTeacher){
+                this.name = name;
+                this.capacityOfStudents = capacityOfStudents;
+                this.setOfStudents = setOfStudents;
+                this.formTeacher = formTeacher;
+            };
+
+            var Person = function person(firstName, lastName, age){
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+            };
+
+            var Student = function student(firstName, lastName, age, grade){
+                Person.apply(this, arguments);
+                this.grade = grade;
+                this.introducement = function () {
+                    console.log('Name: ' + this.firstName + ' ' + this.lastName + ', Age: ' + this.age + ', Grade: ' + this.grade);
+                }
+            };
+//           Student.prototype = new Person();
+            var Teacher = function teacher(firstName, lastName, age, speciality){
+                Person.call(this,firstName,lastName,age);
+                this.speciality = speciality;
+                this.introducement = function () {
+                    console.log('Name: ' + this.firstName + ' ' + this.lastName + ', Age: ' + this.age + ', Speciality: ' + this.speciality);
+                }
+            };
+
+            return {
+                School: School,
+                Class: Class,
+                Person: Person,
+                Student: Student,
+                Teacher: Teacher
+            }
+        }());
+
+        var testSt = new SchoolRepository.Student('asd', 'asd', 5, 6);
+        testSt.introducement();
+
+        var testTeach = new SchoolRepository.Teacher('Te', 'acher', 13, 'Math');
+        testTeach.introducement();
+
+        var testClass = new SchoolRepository.Class('Math', 25, [testSt], testTeach);
+            console.log(testClass);
+    </script>
+</body>
+</html>

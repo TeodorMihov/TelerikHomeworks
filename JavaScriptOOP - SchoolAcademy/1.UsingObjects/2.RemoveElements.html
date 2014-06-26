@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remove element</title>
+</head>
+<body>
+<!--TASK-->
+<!--Write a function that removes all elements with a given value-->
+<!--Attach it to the array type-->
+<!--Read about prototype and how to attach methods-->
+<!--Example-->
+<!--var arr = [1,2,1,4,1,3,4,1,111,3,2,1,"1"];-->
+<!--arr.remove(1); //arr = [2,4,3,4,111,3,2,"1"];-->
+
+    <script>
+        var array = [1, 2, 3, 1, 4, 5, "1"],
+            target = 1;
+
+        Array.prototype.removeElements = function (target){
+            var result = [];
+            for(var i = 0; i < this.length; i += 1) {
+                // ако искаме да връща само числа
+//                if(typeof this[i] === "number" ||
+//                        typeof this[i] === "Number") {
+                    if(this[i] !== target) {
+                        result.push(this[i]);
+                    }
+//                }
+            }
+            return result;
+        };
+
+        console.log(array.removeElements(target));
+    </script>
+
+    <!--<input type="text" id="numbers" />-->
+    <!--<input type="submit" id="buttonNumbers" value="Submit Array"/> <br />-->
+    <!--<input type="text" id="target" />-->
+    <!--<button id="submitBtn">Submit and Result</button>-->
+    <script>
+//        // втори начин, но не работи за стринг и не е прототип
+//        var btnArray = document.getElementById('buttonNumbers'),
+//            btnTarget = document.getElementById('submitBtn'),
+//            array = [],
+//            target = 0;
+//
+//        btnArray.onclick = function getArray() {
+//            strArray = document.getElementById('numbers').value.split(' ');
+//            for(var i = 0; i < strArray.length; i += 1) {
+//                array.push(strArray[i]);
+//            }
+//        };
+//
+//        btnTarget.onclick = function submitTarget(){
+//            target = document.getElementById('target').value;
+//            var div = document.createElement('div');
+//
+//            var result = removeTargetFromArray(array,target);
+//
+//            div.innerText = result;
+//            document.body.appendChild(div);
+//        };
+//
+//        function removeTargetFromArray(array, target){
+//            var newArr = [];
+//            for(var i = 0; i < array.length; i += 1) {
+//                if(target !== array[i]) {
+//                    newArr.push(array[i]);
+//                }
+//
+//            }
+//
+//            return newArr;
+//        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>School repository prototypal OOP</title>
+    <script src="scripts/object-create.js"></script>
+</head>
+<body>
+    <script>
+        var School = {
+            init: function(name, town, classesOfStudents) {
+                this.name = name;
+                this.town = town;
+                this.classesOfStudents = classesOfStudents;
+            }
+        };
+
+        var Class = {
+            init: function(name, capacityOfStudents, setOfStudents, formTeacher){
+                this.name = name;
+                this.capacityOfStudents = capacityOfStudents;
+                this.setOfStudents = setOfStudents;
+                this.formTeacher = formTeacher;
+            }
+        };
+
+        var Person = {
+            init: function(firstName, lastName, age) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+            }
+        };
+
+        var Student = Person.extend({
+            init: function(firstName, lastName, age, grade){
+                Person.init.apply(this, arguments);
+//                Person.init.call(this,firstName,lastname,age);
+                this.grade = grade;
+            },
+            introducement: function introducement(){
+                console.log('Name: ' + this.firstName + ' ' + this.lastName + ', Age: ' + this.age + ', Grade: ' + this.grade);
+            }
+        });
+
+        var Teacher = Person.extend({
+            init: function(firstName, lastName, age, specialty){
+//                Person.init.apply(this, arguments);
+                Person.init.call(this,firstName,lastName,age);
+                this.specialty = specialty;
+            },
+            introducement: function introducement() {
+                console.log('Name: ' + this.firstName + ' ' + this.lastName + ', Age: ' + this.age + ', Specialty: ' + this.specialty);
+            }
+        });
+
+        var student = Object.create(Student);
+        student.init('Pesho','Peshev',15,8);
+        student.introducement();
+
+        var teacher = Object.create(Teacher);
+        teacher.init('Galabin', 'Boevski', 45, 'Mathematic');
+        teacher.introducement();
+
+        var someClass = Object.create(Class);
+        someClass.init('ShityClass', 30, [student], teacher);
+
+        var someSchool = Object.create(School);
+        someSchool.init('PMGEE', 'nowhere', [someClass]);
+    </script>
+</body>
+</html>

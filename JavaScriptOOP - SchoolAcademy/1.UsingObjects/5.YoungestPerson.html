@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find youngest person</title>
+</head>
+<body>
+<!--TASK-->
+<!--Write a function that finds the youngest person in a given array of persons and prints his/hers full name-->
+<!--Each person have properties firstname, lastname and age, as shown:-->
+<!--var persons = [-->
+<!--{firstname : "Gosho", lastname: "Petrov", age: 32},-->
+<!--{firstname : "Bay", lastname: "Ivan", age: 81},…];-->
+
+    <script>
+        var persons = [
+            {firstName: 'Gosho', lastName: 'Petrov', age: 32},
+            {firstName: 'Bay', lastName: 'Ivan', age: 81}
+        ];
+        findYoungestPerson(persons);
+        function findYoungestPerson (persons) {
+            var youngestPersonAge = 2014,
+                youngestPerson = {};
+
+            for(var i = 0; i < persons.length; i += 1) {
+                var currentPersonAge = persons[i].age;
+                if(currentPersonAge < youngestPersonAge){
+                    youngestPersonAge = currentPersonAge;
+                    youngestPerson = persons[i];
+                }
+
+            }
+
+            console.log(youngestPerson.firstName);
+            return youngestPerson;
+        }
+
+
+    </script>
+</body>
+</html>

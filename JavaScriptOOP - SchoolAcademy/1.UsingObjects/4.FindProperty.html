@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Properties</title>
+</head>
+<body>
+<!--TASK-->
+<!--Write a function that checks if a given object contains a given property-->
+<!--var obj  = …;-->
+<!--var hasProp = hasProperty(obj,"length");-->
+
+<input type="text" id="object" />
+    <input type="text" id="property" />
+    <input type="submit" id="submit" />
+    <script>
+        var button = document.getElementById('submit');
+
+        button.onclick = function() {
+            var strObj = document.getElementById('object').value,
+                prop = document.getElementById('property').value;
+
+            if(!window[strObj]){
+                console.log('This object does not exist!');
+            }
+
+            var obj = new window[strObj];
+
+            if(!obj[prop]) {
+                console.log('No property ' + prop);
+            } else {
+                console.log('Property ' + prop + " exist");
+            }
+        }
+    </script>
+</body>
+</html>
