@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Drawing shapes module</title>
+    <script src="scripts/kinetic.min.js"></script>
+</head>
+<body>
+    <div>
+        <ul>
+            <p><strong>Create a module for drawing shapes using Canvas.Implement the following shapes:</strong></p>
+            <li>Rect, by given position (X, Y) and size (Width, Height)</li>
+            <li>Circle, by given center position (X, Y) and radius (R)</li>
+            <li>Line, by given from (X1, Y1) and to (X2, Y2) positions</li>
+        </ul>
+    </div>
+    <div id="container"></div>
+    <canvas id="canvas-container" width="300" height="100"></canvas>
+    <script>
+        var KineticShapes = (function() {
+            var stage = new Kinetic.Stage({
+                    container: 'container',
+                    width: 300,
+                    height: 100
+            }),
+                layer = new Kinetic.Layer();
+
+        function createRect(x, y, width, height){
+            var rect =  new Kinetic.Rect({
+                x: x,
+                y: y,
+                width: width,
+                height: height,
+                stroke: 'black'
+            });
+            layer.add(rect);
+            stage.add(layer)
+        }
+
+        function createCircle(x, y, radius) {
+            var circle = new Kinetic.Circle({
+                x: x,
+                y: y,
+                radius: radius,
+                stroke: 'black'
+            });
+            layer.add(circle);
+            stage.add(layer);
+        }
+
+        function createLine(x1, y1, x2, y2){
+            var Line = new Kinetic.Line({
+                points:[x1, y1, x2, y2],
+                stroke: 'black'
+            });
+            layer.add(Line);
+            stage.add(layer);
+        }
+            return {
+                Rect: createRect,
+                Circle: createCircle,
+                Line: createLine
+            }
+
+        }());
+
+        var sh = new KineticShapes.Rect(15, 15, 15, 15);
+        var cir = new KineticShapes.Circle(25, 50, 15);
+        var line = new KineticShapes.Line(15, 70, 150, 70);
+    </script>
+    <script>
+        var CanvasShapes = (function(){
+            var canvas = document.getElementById('canvas-container'),
+                ctx = canvas.getContext('2d');
+
+            function createCircle(x, y, radius) {
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = '#000';
+                ctx.stroke();
+
+            }
+
+            function createRect(x, y, width, height) {
+                ctx.beginPath();
+                ctx.beginPath();
+                ctx.rect(x, y, width, height);
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = 'black';
+                ctx.stroke();
+            }
+
+            function createLine(x1, y1, x2, y2){
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = '#000';
+                ctx.stroke();
+            }
+
+            return {
+                Circle: createCircle,
+                Rect: createRect,
+                Line: createLine
+            }
+        }());
+        var circle = new CanvasShapes.Circle(15, 15, 10),
+            rect = new CanvasShapes.Rect(15, 50, 15, 15),
+            line = new CanvasShapes.Line(15, 70, 150, 70);
+    </script>
+</body>
+</html>

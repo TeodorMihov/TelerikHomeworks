@@ -42,12 +42,19 @@
                 var parentElement = document.querySelector('#' + parent),
                     docFragment = document.createDocumentFragment(),
                     elementsLength = 100;
+					docFragment.appendChild(element.cloneNode(true));
+					if(docFragment.length === elementsLength) {
+						parentElement.appendChild(docFragment)
+					}
+					
+					if(docFragment.length === elementsLength + 1) {
+						for(var i = 0; i < elementsLength; i += 1) {
+							documentFragment.removeChild(docFragment[i]);
+						}
+					}
+                
 
-                for(var i = 0; i < elementsLength; i += 1) {
-                    docFragment.appendChild(element.cloneNode(true));
-                }
-
-                parentElement.appendChild(docFragment)
+                
             }
 
             return {

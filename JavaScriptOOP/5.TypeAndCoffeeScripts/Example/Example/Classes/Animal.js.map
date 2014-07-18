@@ -1,0 +1,1 @@
+{"version":3,"file":"Animal.js","sourceRoot":"","sources":["Animal.ts"],"names":["Animal","Animal.constructor","Animal.move","Animal.makeSound"],"mappings":";;;;;;AAAA;IAAqBA,yBAAQA;IACzBA,gBAAYA,IAAYA;QACpBC,WAAMA,OAAAA,IAAIA,CAACA;IACfA,CAACA;IAEDD,wBAAAA;IAEAE,CAACA;;IAEDF,6BAAAA;IAEAG,CAACA;IACLH,cAACA;AAADA,CAACA,EAZoB,QAAQ,EAY5B"}
